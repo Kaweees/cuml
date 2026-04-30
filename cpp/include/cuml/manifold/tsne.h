@@ -126,16 +126,16 @@ struct TSNEParams {
  * approach is available in their article t-SNE-CUDA: GPU-Accelerated t-SNE and
  * its Applications to Modern Data (https://arxiv.org/abs/1807.11824).
  */
-CUML_EXPORT void TSNE_fit(const raft::handle_t& handle,
-                          float* X,
-                          float* Y,
-                          int n,
-                          int p,
-                          int64_t* knn_indices,
-                          float* knn_dists,
-                          TSNEParams& params,
-                          float* kl_div = nullptr,
-                          int* n_iter   = nullptr);
+void TSNE_fit(const raft::handle_t& handle,
+              float* X,
+              float* Y,
+              int n,
+              int p,
+              int64_t* knn_indices,
+              float* knn_dists,
+              TSNEParams& params,
+              float* kl_div = nullptr,
+              int* n_iter   = nullptr);
 
 /**
  * @brief Dimensionality reduction via TSNE using either Barnes Hut O(NlogN)
@@ -162,18 +162,18 @@ CUML_EXPORT void TSNE_fit(const raft::handle_t& handle,
  * approach is available in their article t-SNE-CUDA: GPU-Accelerated t-SNE and
  * its Applications to Modern Data (https://arxiv.org/abs/1807.11824).
  */
-CUML_EXPORT void TSNE_fit_sparse(const raft::handle_t& handle,
-                                 int* indptr,
-                                 int* indices,
-                                 float* data,
-                                 float* Y,
-                                 int nnz,
-                                 int n,
-                                 int p,
-                                 int* knn_indices,
-                                 float* knn_dists,
-                                 TSNEParams& params,
-                                 float* kl_div = nullptr,
-                                 int* n_iter   = nullptr);
+void TSNE_fit_sparse(const raft::handle_t& handle,
+                     int* indptr,
+                     int* indices,
+                     float* data,
+                     float* Y,
+                     int nnz,
+                     int n,
+                     int p,
+                     int* knn_indices,
+                     float* knn_dists,
+                     TSNEParams& params,
+                     float* kl_div = nullptr,
+                     int* n_iter   = nullptr);
 
 }  // namespace ML

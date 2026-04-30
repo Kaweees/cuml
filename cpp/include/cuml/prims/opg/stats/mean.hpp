@@ -25,19 +25,19 @@ namespace opg {
  * @param[in] streams cuda streams
  * @param[in] n_streams number of streams
  */
-CUML_EXPORT void mean(const raft::handle_t& handle,
-                      Matrix::Data<float>& out,
-                      const std::vector<Matrix::Data<float>*>& in,
-                      const Matrix::PartDescriptor& inDesc,
-                      cudaStream_t* streams,
-                      int n_streams);
+void mean(const raft::handle_t& handle,
+          Matrix::Data<float>& out,
+          const std::vector<Matrix::Data<float>*>& in,
+          const Matrix::PartDescriptor& inDesc,
+          cudaStream_t* streams,
+          int n_streams);
 
-CUML_EXPORT void mean(const raft::handle_t& handle,
-                      Matrix::Data<double>& out,
-                      const std::vector<Matrix::Data<double>*>& in,
-                      const Matrix::PartDescriptor& inDesc,
-                      cudaStream_t* streams,
-                      int n_streams);
+void mean(const raft::handle_t& handle,
+          Matrix::Data<double>& out,
+          const std::vector<Matrix::Data<double>*>& in,
+          const Matrix::PartDescriptor& inDesc,
+          cudaStream_t* streams,
+          int n_streams);
 
 }  // end namespace opg
 }  // end namespace Stats

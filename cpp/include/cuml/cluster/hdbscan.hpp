@@ -435,12 +435,12 @@ class PredictionData {
 
 template class PredictionData<int64_t, float>;
 
-CUML_EXPORT void generate_prediction_data(const raft::handle_t& handle,
-                                          CondensedHierarchy<int64_t, float>& condensed_tree,
-                                          int64_t* labels,
-                                          int64_t* inverse_label_map,
-                                          int n_selected_clusters,
-                                          PredictionData<int64_t, float>& prediction_data);
+void generate_prediction_data(const raft::handle_t& handle,
+                              CondensedHierarchy<int64_t, float>& condensed_tree,
+                              int64_t* labels,
+                              int64_t* inverse_label_map,
+                              int n_selected_clusters,
+                              PredictionData<int64_t, float>& prediction_data);
 
 };  // namespace Common
 };  // namespace HDBSCAN
@@ -467,40 +467,38 @@ CUML_EXPORT void generate_prediction_data(const raft::handle_t& handle,
  * @param out struct of output data and arrays on device
  * @param core_dists array (size m, 1) of core distances
  */
-CUML_EXPORT void hdbscan(const raft::handle_t& handle,
-                         const float* X,
-                         size_t m,
-                         size_t n,
-                         ML::distance::DistanceType metric,
-                         HDBSCAN::Common::HDBSCANParams& params,
-                         HDBSCAN::Common::hdbscan_output<int64_t, float>& out,
-                         float* core_dists);
+void hdbscan(const raft::handle_t& handle,
+             const float* X,
+             size_t m,
+             size_t n,
+             ML::distance::DistanceType metric,
+             HDBSCAN::Common::HDBSCANParams& params,
+             HDBSCAN::Common::hdbscan_output<int64_t, float>& out,
+             float* core_dists);
 
-CUML_EXPORT void build_condensed_hierarchy(
-  const raft::handle_t& handle,
-  const int64_t* children,
-  const float* delta,
-  const int64_t* sizes,
-  int min_cluster_size,
-  int n_leaves,
-  HDBSCAN::Common::CondensedHierarchy<int64_t, float>& condensed_tree);
+void build_condensed_hierarchy(const raft::handle_t& handle,
+                               const int64_t* children,
+                               const float* delta,
+                               const int64_t* sizes,
+                               int min_cluster_size,
+                               int n_leaves,
+                               HDBSCAN::Common::CondensedHierarchy<int64_t, float>& condensed_tree);
 
-CUML_EXPORT void _extract_clusters(
-  const raft::handle_t& handle,
-  size_t n_leaves,
-  int n_edges,
-  int64_t* parents,
-  int64_t* children,
-  float* lambdas,
-  int64_t* sizes,
-  int64_t* labels,
-  float* probabilities,
-  HDBSCAN::Common::CLUSTER_SELECTION_METHOD cluster_selection_method,
-  bool allow_single_cluster,
-  int64_t max_cluster_size,
-  float cluster_selection_epsilon);
+void _extract_clusters(const raft::handle_t& handle,
+                       size_t n_leaves,
+                       int n_edges,
+                       int64_t* parents,
+                       int64_t* children,
+                       float* lambdas,
+                       int64_t* sizes,
+                       int64_t* labels,
+                       float* probabilities,
+                       HDBSCAN::Common::CLUSTER_SELECTION_METHOD cluster_selection_method,
+                       bool allow_single_cluster,
+                       int64_t max_cluster_size,
+                       float cluster_selection_epsilon);
 
-CUML_EXPORT void compute_all_points_membership_vectors(
+void compute_all_points_membership_vectors(
   const raft::handle_t& handle,
   HDBSCAN::Common::CondensedHierarchy<int64_t, float>& condensed_tree,
   HDBSCAN::Common::PredictionData<int64_t, float>& prediction_data,
@@ -509,30 +507,28 @@ CUML_EXPORT void compute_all_points_membership_vectors(
   float* membership_vec,
   size_t batch_size = 4096);
 
-CUML_EXPORT void compute_membership_vector(
-  const raft::handle_t& handle,
-  HDBSCAN::Common::CondensedHierarchy<int64_t, float>& condensed_tree,
-  HDBSCAN::Common::PredictionData<int64_t, float>& prediction_data,
-  const float* X,
-  const float* points_to_predict,
-  size_t n_prediction_points,
-  int min_samples,
-  ML::distance::DistanceType metric,
-  float* membership_vec,
-  size_t batch_size = 4096);
+void compute_membership_vector(const raft::handle_t& handle,
+                               HDBSCAN::Common::CondensedHierarchy<int64_t, float>& condensed_tree,
+                               HDBSCAN::Common::PredictionData<int64_t, float>& prediction_data,
+                               const float* X,
+                               const float* points_to_predict,
+                               size_t n_prediction_points,
+                               int min_samples,
+                               ML::distance::DistanceType metric,
+                               float* membership_vec,
+                               size_t batch_size = 4096);
 
-CUML_EXPORT void out_of_sample_predict(
-  const raft::handle_t& handle,
-  HDBSCAN::Common::CondensedHierarchy<int64_t, float>& condensed_tree,
-  HDBSCAN::Common::PredictionData<int64_t, float>& prediction_data,
-  const float* X,
-  int64_t* labels,
-  const float* points_to_predict,
-  size_t n_prediction_points,
-  ML::distance::DistanceType metric,
-  int min_samples,
-  int64_t* out_labels,
-  float* out_probabilities);
+void out_of_sample_predict(const raft::handle_t& handle,
+                           HDBSCAN::Common::CondensedHierarchy<int64_t, float>& condensed_tree,
+                           HDBSCAN::Common::PredictionData<int64_t, float>& prediction_data,
+                           const float* X,
+                           int64_t* labels,
+                           const float* points_to_predict,
+                           size_t n_prediction_points,
+                           ML::distance::DistanceType metric,
+                           int min_samples,
+                           int64_t* out_labels,
+                           float* out_probabilities);
 
 namespace HDBSCAN::HELPER {
 
@@ -547,13 +543,13 @@ namespace HDBSCAN::HELPER {
  * @param metric distance metric to use
  * @param min_samples minimum number of samples to use for computing core distances
  */
-CUML_EXPORT void compute_core_dists(const raft::handle_t& handle,
-                                    const float* X,
-                                    float* core_dists,
-                                    size_t m,
-                                    size_t n,
-                                    ML::distance::DistanceType metric,
-                                    int min_samples);
+void compute_core_dists(const raft::handle_t& handle,
+                        const float* X,
+                        float* core_dists,
+                        size_t m,
+                        size_t n,
+                        ML::distance::DistanceType metric,
+                        int min_samples);
 
 /**
  * @brief Compute the map from final, normalize labels to the labels in the CondensedHierarchy
@@ -568,15 +564,14 @@ CUML_EXPORT void compute_core_dists(const raft::handle_t& handle,
  * @param[in] max_cluster_size max cluster size
  * @param[in] cluster_selection_epsilon cluster selection epsilon
  */
-CUML_EXPORT void compute_inverse_label_map(
-  const raft::handle_t& handle,
-  HDBSCAN::Common::CondensedHierarchy<int64_t, float>& condensed_tree,
-  size_t n_leaves,
-  HDBSCAN::Common::CLUSTER_SELECTION_METHOD cluster_selection_method,
-  rmm::device_uvector<int64_t>& inverse_label_map,
-  bool allow_single_cluster,
-  int64_t max_cluster_size,
-  float cluster_selection_epsilon);
+void compute_inverse_label_map(const raft::handle_t& handle,
+                               HDBSCAN::Common::CondensedHierarchy<int64_t, float>& condensed_tree,
+                               size_t n_leaves,
+                               HDBSCAN::Common::CLUSTER_SELECTION_METHOD cluster_selection_method,
+                               rmm::device_uvector<int64_t>& inverse_label_map,
+                               bool allow_single_cluster,
+                               int64_t max_cluster_size,
+                               float cluster_selection_epsilon);
 
 }  // namespace HDBSCAN::HELPER
 }  // END namespace ML

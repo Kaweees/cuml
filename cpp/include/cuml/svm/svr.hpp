@@ -39,15 +39,15 @@ struct SvmParameter;
  * @return n_iter: the number of solver iterations run during fitting
  */
 template <typename math_t>
-CUML_EXPORT int svrFit(const raft::handle_t& handle,
-                       math_t* X,
-                       int n_rows,
-                       int n_cols,
-                       math_t* y,
-                       const SvmParameter& param,
-                       ML::matrix::KernelParams& kernel_params,
-                       SvmModel<math_t>& model,
-                       const math_t* sample_weight = nullptr);
+int svrFit(const raft::handle_t& handle,
+           math_t* X,
+           int n_rows,
+           int n_cols,
+           math_t* y,
+           const SvmParameter& param,
+           ML::matrix::KernelParams& kernel_params,
+           SvmModel<math_t>& model,
+           const math_t* sample_weight = nullptr);
 
 /**
  * @brief Fit a support vector regressor to the training data.
@@ -72,18 +72,18 @@ CUML_EXPORT int svrFit(const raft::handle_t& handle,
  * @return n_iter: the number of solver iterations run during fitting
  */
 template <typename math_t>
-CUML_EXPORT int svrFitSparse(const raft::handle_t& handle,
-                             int* indptr,
-                             int* indices,
-                             math_t* data,
-                             int n_rows,
-                             int n_cols,
-                             int nnz,
-                             math_t* y,
-                             const SvmParameter& param,
-                             ML::matrix::KernelParams& kernel_params,
-                             SvmModel<math_t>& model,
-                             const math_t* sample_weight = nullptr);
+int svrFitSparse(const raft::handle_t& handle,
+                 int* indptr,
+                 int* indices,
+                 math_t* data,
+                 int n_rows,
+                 int n_cols,
+                 int nnz,
+                 math_t* y,
+                 const SvmParameter& param,
+                 ML::matrix::KernelParams& kernel_params,
+                 SvmModel<math_t>& model,
+                 const math_t* sample_weight = nullptr);
 
 // For prediction we use svcPredict
 

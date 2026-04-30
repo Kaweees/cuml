@@ -82,7 +82,7 @@ enum class mutation_t : uint32_t {
  * @note Unless otherwise mentioned, all the parameters below are applicable to
  *       all of classification, regression and transformation.
  */
-struct CUML_EXPORT param {
+struct param {
   /** number of programs in each generation */
   int population_size = 1000;
 

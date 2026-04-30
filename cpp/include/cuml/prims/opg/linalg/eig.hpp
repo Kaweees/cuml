@@ -30,37 +30,37 @@ namespace opg {
  * \param[in]   stream          CUDA stream.
  */
 
-CUML_EXPORT void eigDC(const raft::handle_t& h,
-                       float* eigenValues,
-                       float* eigenVectors,
-                       std::vector<Matrix::Data<float>*>& inParts,
-                       Matrix::PartDescriptor& desc,
-                       int myRank,
-                       cudaStream_t stream);
+void eigDC(const raft::handle_t& h,
+           float* eigenValues,
+           float* eigenVectors,
+           std::vector<Matrix::Data<float>*>& inParts,
+           Matrix::PartDescriptor& desc,
+           int myRank,
+           cudaStream_t stream);
 
-CUML_EXPORT void eigDC(const raft::handle_t& h,
-                       double* eigenValues,
-                       double* eigenVectors,
-                       std::vector<Matrix::Data<double>*>& inParts,
-                       Matrix::PartDescriptor& desc,
-                       int myRank,
-                       cudaStream_t stream);
+void eigDC(const raft::handle_t& h,
+           double* eigenValues,
+           double* eigenVectors,
+           std::vector<Matrix::Data<double>*>& inParts,
+           Matrix::PartDescriptor& desc,
+           int myRank,
+           cudaStream_t stream);
 
-CUML_EXPORT void eigJacobi(const raft::handle_t& h,
-                           float* eigenValues,
-                           float* eigenVectors,
-                           std::vector<Matrix::Data<float>*>& inParts,
-                           Matrix::PartDescriptor& desc,
-                           int myRank,
-                           cudaStream_t stream);
+void eigJacobi(const raft::handle_t& h,
+               float* eigenValues,
+               float* eigenVectors,
+               std::vector<Matrix::Data<float>*>& inParts,
+               Matrix::PartDescriptor& desc,
+               int myRank,
+               cudaStream_t stream);
 
-CUML_EXPORT void eigJacobi(const raft::handle_t& h,
-                           double* eigenValues,
-                           double* eigenVectors,
-                           std::vector<Matrix::Data<double>*>& inParts,
-                           Matrix::PartDescriptor& desc,
-                           int myRank,
-                           cudaStream_t stream);
+void eigJacobi(const raft::handle_t& h,
+               double* eigenValues,
+               double* eigenVectors,
+               std::vector<Matrix::Data<double>*>& inParts,
+               Matrix::PartDescriptor& desc,
+               int myRank,
+               cudaStream_t stream);
 
 }  // end namespace opg
 }  // end namespace LinAlg

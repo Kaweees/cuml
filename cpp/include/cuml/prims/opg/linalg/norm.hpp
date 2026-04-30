@@ -19,33 +19,33 @@ namespace opg {
 /**
  * @brief performs MNMG Least squares calculation.
  */
-CUML_EXPORT void colNorm2(const raft::handle_t& handle,
-                          Matrix::Data<double>& out,
-                          const std::vector<Matrix::Data<double>*>& in,
-                          const Matrix::PartDescriptor& inDesc,
-                          cudaStream_t* streams,
-                          int n_streams);
+void colNorm2(const raft::handle_t& handle,
+              Matrix::Data<double>& out,
+              const std::vector<Matrix::Data<double>*>& in,
+              const Matrix::PartDescriptor& inDesc,
+              cudaStream_t* streams,
+              int n_streams);
 
-CUML_EXPORT void colNorm2(const raft::handle_t& handle,
-                          Matrix::Data<float>& out,
-                          const std::vector<Matrix::Data<float>*>& in,
-                          const Matrix::PartDescriptor& inDesc,
-                          cudaStream_t* streams,
-                          int n_streams);
+void colNorm2(const raft::handle_t& handle,
+              Matrix::Data<float>& out,
+              const std::vector<Matrix::Data<float>*>& in,
+              const Matrix::PartDescriptor& inDesc,
+              cudaStream_t* streams,
+              int n_streams);
 
-CUML_EXPORT void colNorm2NoSeq(const raft::handle_t& handle,
-                               Matrix::Data<double>& out,
-                               const std::vector<Matrix::Data<double>*>& in,
-                               const Matrix::PartDescriptor& inDesc,
-                               cudaStream_t* streams,
-                               int n_streams);
+void colNorm2NoSeq(const raft::handle_t& handle,
+                   Matrix::Data<double>& out,
+                   const std::vector<Matrix::Data<double>*>& in,
+                   const Matrix::PartDescriptor& inDesc,
+                   cudaStream_t* streams,
+                   int n_streams);
 
-CUML_EXPORT void colNorm2NoSeq(const raft::handle_t& handle,
-                               Matrix::Data<float>& out,
-                               const std::vector<Matrix::Data<float>*>& in,
-                               const Matrix::PartDescriptor& inDesc,
-                               cudaStream_t* streams,
-                               int n_streams);
+void colNorm2NoSeq(const raft::handle_t& handle,
+                   Matrix::Data<float>& out,
+                   const std::vector<Matrix::Data<float>*>& in,
+                   const Matrix::PartDescriptor& inDesc,
+                   cudaStream_t* streams,
+                   int n_streams);
 
 }  // end namespace opg
 }  // end namespace LinAlg

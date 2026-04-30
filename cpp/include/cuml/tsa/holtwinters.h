@@ -37,15 +37,15 @@ namespace HoltWinters {
  * @param[out] season_coef_shift
  *             pointer which will hold the offset to season array
  */
-CUML_EXPORT void buffer_size(int n,
-                             int batch_size,
-                             int frequency,
-                             int* start_leveltrend_len,
-                             int* start_season_len,
-                             int* components_len,
-                             int* error_len,
-                             int* leveltrend_coef_shift,
-                             int* season_coef_shift);
+void buffer_size(int n,
+                 int batch_size,
+                 int frequency,
+                 int* start_leveltrend_len,
+                 int* start_season_len,
+                 int* components_len,
+                 int* error_len,
+                 int* leveltrend_coef_shift,
+                 int* season_coef_shift);
 
 /**
  * Fits a HoltWinters model
@@ -74,30 +74,30 @@ CUML_EXPORT void buffer_size(int n,
  * @param[out] error_d
  *             device pointer to array which will hold training SSE error
  */
-CUML_EXPORT void fit(const raft::handle_t& handle,
-                     int n,
-                     int batch_size,
-                     int frequency,
-                     int start_periods,
-                     ML::SeasonalType seasonal,
-                     float epsilon,
-                     float* data,
-                     float* level_d,
-                     float* trend_d,
-                     float* season_d,
-                     float* error_d);
-CUML_EXPORT void fit(const raft::handle_t& handle,
-                     int n,
-                     int batch_size,
-                     int frequency,
-                     int start_periods,
-                     ML::SeasonalType seasonal,
-                     double epsilon,
-                     double* data,
-                     double* level_d,
-                     double* trend_d,
-                     double* season_d,
-                     double* error_d);
+void fit(const raft::handle_t& handle,
+         int n,
+         int batch_size,
+         int frequency,
+         int start_periods,
+         ML::SeasonalType seasonal,
+         float epsilon,
+         float* data,
+         float* level_d,
+         float* trend_d,
+         float* season_d,
+         float* error_d);
+void fit(const raft::handle_t& handle,
+         int n,
+         int batch_size,
+         int frequency,
+         int start_periods,
+         ML::SeasonalType seasonal,
+         double epsilon,
+         double* data,
+         double* level_d,
+         double* trend_d,
+         double* season_d,
+         double* error_d);
 
 /**
  * Forecasts future points from fitted HoltWinters model
@@ -122,26 +122,26 @@ CUML_EXPORT void fit(const raft::handle_t& handle,
  * @param[out] forecast_d
  *             device pointer to array which will hold the forecast points
  */
-CUML_EXPORT void forecast(const raft::handle_t& handle,
-                          int n,
-                          int batch_size,
-                          int frequency,
-                          int h,
-                          ML::SeasonalType seasonal,
-                          float* level_d,
-                          float* trend_d,
-                          float* season_d,
-                          float* forecast_d);
-CUML_EXPORT void forecast(const raft::handle_t& handle,
-                          int n,
-                          int batch_size,
-                          int frequency,
-                          int h,
-                          ML::SeasonalType seasonal,
-                          double* level_d,
-                          double* trend_d,
-                          double* season_d,
-                          double* forecast_d);
+void forecast(const raft::handle_t& handle,
+              int n,
+              int batch_size,
+              int frequency,
+              int h,
+              ML::SeasonalType seasonal,
+              float* level_d,
+              float* trend_d,
+              float* season_d,
+              float* forecast_d);
+void forecast(const raft::handle_t& handle,
+              int n,
+              int batch_size,
+              int frequency,
+              int h,
+              ML::SeasonalType seasonal,
+              double* level_d,
+              double* trend_d,
+              double* season_d,
+              double* forecast_d);
 
 }  // namespace HoltWinters
 }  // namespace ML

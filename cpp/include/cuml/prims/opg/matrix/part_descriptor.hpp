@@ -94,10 +94,10 @@ struct PartDescriptor {
 };
 
 /** Print matrix descriptor in human readable form */
-CUML_EXPORT std::ostream& operator<<(std::ostream& os, const PartDescriptor& desc);
+std::ostream& operator<<(std::ostream& os, const PartDescriptor& desc);
 
 /** compare 2 descriptor objects */
-CUML_EXPORT bool operator==(const PartDescriptor& a, const PartDescriptor& b);
+bool operator==(const PartDescriptor& a, const PartDescriptor& b);
 
 };  // end namespace Matrix
 };  // end namespace MLCommon

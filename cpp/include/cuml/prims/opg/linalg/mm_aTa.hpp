@@ -25,19 +25,19 @@ namespace opg {
  * @param[in] streams cuda streams
  * @param[in] n_streams number of streams
  */
-CUML_EXPORT void mm_aTa(const raft::handle_t& handle,
-                        Matrix::Data<double>& out,
-                        const std::vector<Matrix::Data<double>*>& in1,
-                        const Matrix::PartDescriptor& in1Desc,
-                        cudaStream_t* streams,
-                        int n_streams);
+void mm_aTa(const raft::handle_t& handle,
+            Matrix::Data<double>& out,
+            const std::vector<Matrix::Data<double>*>& in1,
+            const Matrix::PartDescriptor& in1Desc,
+            cudaStream_t* streams,
+            int n_streams);
 
-CUML_EXPORT void mm_aTa(const raft::handle_t& handle,
-                        Matrix::Data<float>& out,
-                        const std::vector<Matrix::Data<float>*>& in1,
-                        const Matrix::PartDescriptor& in1Desc,
-                        cudaStream_t* streams,
-                        int n_streams);
+void mm_aTa(const raft::handle_t& handle,
+            Matrix::Data<float>& out,
+            const std::vector<Matrix::Data<float>*>& in1,
+            const Matrix::PartDescriptor& in1Desc,
+            cudaStream_t* streams,
+            int n_streams);
 
 }  // end namespace opg
 }  // end namespace LinAlg

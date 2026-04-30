@@ -26,25 +26,25 @@ namespace opg {
  * @param[in] algo: which algorithm is used for OLS. 0 is for SVD, 1 is for eig.
  * @param[in] verbose
  */
-CUML_EXPORT void fit(raft::handle_t& handle,
-                     std::vector<MLCommon::Matrix::Data<float>*>& input_data,
-                     MLCommon::Matrix::PartDescriptor& input_desc,
-                     std::vector<MLCommon::Matrix::Data<float>*>& labels,
-                     float* coef,
-                     float* intercept,
-                     bool fit_intercept,
-                     int algo,
-                     bool verbose);
+void fit(raft::handle_t& handle,
+         std::vector<MLCommon::Matrix::Data<float>*>& input_data,
+         MLCommon::Matrix::PartDescriptor& input_desc,
+         std::vector<MLCommon::Matrix::Data<float>*>& labels,
+         float* coef,
+         float* intercept,
+         bool fit_intercept,
+         int algo,
+         bool verbose);
 
-CUML_EXPORT void fit(raft::handle_t& handle,
-                     std::vector<MLCommon::Matrix::Data<double>*>& input_data,
-                     MLCommon::Matrix::PartDescriptor& input_desc,
-                     std::vector<MLCommon::Matrix::Data<double>*>& labels,
-                     double* coef,
-                     double* intercept,
-                     bool fit_intercept,
-                     int algo,
-                     bool verbose);
+void fit(raft::handle_t& handle,
+         std::vector<MLCommon::Matrix::Data<double>*>& input_data,
+         MLCommon::Matrix::PartDescriptor& input_desc,
+         std::vector<MLCommon::Matrix::Data<double>*>& labels,
+         double* coef,
+         double* intercept,
+         bool fit_intercept,
+         int algo,
+         bool verbose);
 
 /**
  * @brief performs MNMG prediction for OLS
@@ -59,27 +59,27 @@ CUML_EXPORT void fit(raft::handle_t& handle,
  * @param[out] preds: predictions
  * @param[in] verbose
  */
-CUML_EXPORT void predict(raft::handle_t& handle,
-                         MLCommon::Matrix::RankSizePair** rank_sizes,
-                         size_t n_parts,
-                         MLCommon::Matrix::Data<float>** input,
-                         size_t n_rows,
-                         size_t n_cols,
-                         float* coef,
-                         float intercept,
-                         MLCommon::Matrix::Data<float>** preds,
-                         bool verbose);
+void predict(raft::handle_t& handle,
+             MLCommon::Matrix::RankSizePair** rank_sizes,
+             size_t n_parts,
+             MLCommon::Matrix::Data<float>** input,
+             size_t n_rows,
+             size_t n_cols,
+             float* coef,
+             float intercept,
+             MLCommon::Matrix::Data<float>** preds,
+             bool verbose);
 
-CUML_EXPORT void predict(raft::handle_t& handle,
-                         MLCommon::Matrix::RankSizePair** rank_sizes,
-                         size_t n_parts,
-                         MLCommon::Matrix::Data<double>** input,
-                         size_t n_rows,
-                         size_t n_cols,
-                         double* coef,
-                         double intercept,
-                         MLCommon::Matrix::Data<double>** preds,
-                         bool verbose);
+void predict(raft::handle_t& handle,
+             MLCommon::Matrix::RankSizePair** rank_sizes,
+             size_t n_parts,
+             MLCommon::Matrix::Data<double>** input,
+             size_t n_rows,
+             size_t n_cols,
+             double* coef,
+             double intercept,
+             MLCommon::Matrix::Data<double>** preds,
+             bool verbose);
 
 };  // end namespace opg
 };  // end namespace OLS

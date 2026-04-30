@@ -864,22 +864,22 @@ void updateCoef(const raft::handle_t& handle,
  * @param eps numeric parameter for Cholesky rank one update
  */
 template <typename math_t, typename idx_t>
-CUML_EXPORT void larsFit(const raft::handle_t& handle,
-                         math_t* X,
-                         idx_t n_rows,
-                         idx_t n_cols,
-                         const math_t* y,
-                         math_t* beta,
-                         idx_t* active_idx,
-                         math_t* alphas,
-                         idx_t* n_active,
-                         math_t* Gram                        = nullptr,
-                         int max_iter                        = 500,
-                         math_t* coef_path                   = nullptr,
-                         rapids_logger::level_enum verbosity = rapids_logger::level_enum::off,
-                         idx_t ld_X                          = 0,
-                         idx_t ld_G                          = 0,
-                         math_t eps                          = -1)
+void larsFit(const raft::handle_t& handle,
+             math_t* X,
+             idx_t n_rows,
+             idx_t n_cols,
+             const math_t* y,
+             math_t* beta,
+             idx_t* active_idx,
+             math_t* alphas,
+             idx_t* n_active,
+             math_t* Gram                        = nullptr,
+             int max_iter                        = 500,
+             math_t* coef_path                   = nullptr,
+             rapids_logger::level_enum verbosity = rapids_logger::level_enum::off,
+             idx_t ld_X                          = 0,
+             idx_t ld_G                          = 0,
+             math_t eps                          = -1)
 {
   ASSERT(n_cols > 0, "Parameter n_cols: number of columns cannot be less than one");
   ASSERT(n_rows > 0, "Parameter n_rows: number of rows cannot be less than one");
@@ -1079,16 +1079,16 @@ CUML_EXPORT void larsFit(const raft::handle_t& handle,
  *     allocated on entry.
  */
 template <typename math_t, typename idx_t>
-CUML_EXPORT void larsPredict(const raft::handle_t& handle,
-                             const math_t* X,
-                             idx_t n_rows,
-                             idx_t n_cols,
-                             idx_t ld_X,
-                             const math_t* beta,
-                             idx_t n_active,
-                             idx_t* active_idx,
-                             math_t intercept,
-                             math_t* preds)
+void larsPredict(const raft::handle_t& handle,
+                 const math_t* X,
+                 idx_t n_rows,
+                 idx_t n_cols,
+                 idx_t ld_X,
+                 const math_t* beta,
+                 idx_t n_active,
+                 idx_t* active_idx,
+                 math_t intercept,
+                 math_t* preds)
 {
   cudaStream_t stream = handle.get_stream();
   rmm::device_uvector<math_t> beta_sorted(0, stream);

@@ -59,7 +59,7 @@ using QuantileReturnValue = std::tuple<ML::DT::Quantiles<T, int>,
                                        std::shared_ptr<rmm::device_uvector<int>>>;
 
 template <typename T>
-CUML_EXPORT QuantileReturnValue<T> computeQuantiles(
+QuantileReturnValue<T> computeQuantiles(
   const raft::handle_t& handle, const T* data, int max_n_bins, int n_rows, int n_cols)
 {
   raft::common::nvtx::push_range("computeQuantiles");

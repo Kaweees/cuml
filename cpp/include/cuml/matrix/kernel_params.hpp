@@ -17,7 +17,7 @@ namespace ML::matrix {
 
 enum class KernelType { LINEAR, POLYNOMIAL, RBF, TANH, PRECOMPUTED };
 
-struct CUML_EXPORT KernelParams {
+struct KernelParams {
   KernelType kernel;
   int degree;
   double gamma;

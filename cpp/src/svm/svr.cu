@@ -21,7 +21,6 @@ namespace ML {
 namespace SVM {
 
 // Explicit instantiation for the library
-#pragma GCC visibility push(default)
 template int svrFit<float>(const raft::handle_t& handle,
                            float* X,
                            int n_rows,
@@ -67,7 +66,6 @@ template int svrFitSparse<double>(const raft::handle_t& handle,
                                   ML::matrix::KernelParams& kernel_params,
                                   SvmModel<double>& model,
                                   const double* sample_weight);
-#pragma GCC visibility pop
 
 };  // namespace SVM
 };  // end namespace ML

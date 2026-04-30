@@ -28,25 +28,25 @@ namespace opg {
  * @param[in] flip_signs_based_on_U: Whether to use U-based decision for sign flipping (for sklearn
  * < 1.5)
  */
-CUML_EXPORT void fit(raft::handle_t& handle,
-                     MLCommon::Matrix::RankSizePair** rank_sizes,
-                     std::uint32_t n_parts,
-                     MLCommon::Matrix::floatData_t** input,
-                     float* components,
-                     float* singular_vals,
-                     paramsTSVDMG& prms,
-                     bool verbose               = false,
-                     bool flip_signs_based_on_U = false);
+void fit(raft::handle_t& handle,
+         MLCommon::Matrix::RankSizePair** rank_sizes,
+         std::uint32_t n_parts,
+         MLCommon::Matrix::floatData_t** input,
+         float* components,
+         float* singular_vals,
+         paramsTSVDMG& prms,
+         bool verbose               = false,
+         bool flip_signs_based_on_U = false);
 
-CUML_EXPORT void fit(raft::handle_t& handle,
-                     MLCommon::Matrix::RankSizePair** rank_sizes,
-                     std::uint32_t n_parts,
-                     MLCommon::Matrix::doubleData_t** input,
-                     double* components,
-                     double* singular_vals,
-                     paramsTSVDMG& prms,
-                     bool verbose               = false,
-                     bool flip_signs_based_on_U = false);
+void fit(raft::handle_t& handle,
+         MLCommon::Matrix::RankSizePair** rank_sizes,
+         std::uint32_t n_parts,
+         MLCommon::Matrix::doubleData_t** input,
+         double* components,
+         double* singular_vals,
+         paramsTSVDMG& prms,
+         bool verbose               = false,
+         bool flip_signs_based_on_U = false);
 
 /**
  * @brief performs MNMG fit and transform operation for the tsvd.
@@ -64,31 +64,31 @@ CUML_EXPORT void fit(raft::handle_t& handle,
  * @param[in] flip_signs_based_on_U: Whether to use U-based decision for sign flipping (for sklearn
  * < 1.5)
  */
-CUML_EXPORT void fit_transform(raft::handle_t& handle,
-                               std::vector<MLCommon::Matrix::Data<float>*>& input_data,
-                               MLCommon::Matrix::PartDescriptor& input_desc,
-                               std::vector<MLCommon::Matrix::Data<float>*>& trans_data,
-                               MLCommon::Matrix::PartDescriptor& trans_desc,
-                               float* components,
-                               float* explained_var,
-                               float* explained_var_ratio,
-                               float* singular_vals,
-                               paramsTSVDMG& prms,
-                               bool verbose,
-                               bool flip_signs_based_on_U);
+void fit_transform(raft::handle_t& handle,
+                   std::vector<MLCommon::Matrix::Data<float>*>& input_data,
+                   MLCommon::Matrix::PartDescriptor& input_desc,
+                   std::vector<MLCommon::Matrix::Data<float>*>& trans_data,
+                   MLCommon::Matrix::PartDescriptor& trans_desc,
+                   float* components,
+                   float* explained_var,
+                   float* explained_var_ratio,
+                   float* singular_vals,
+                   paramsTSVDMG& prms,
+                   bool verbose,
+                   bool flip_signs_based_on_U);
 
-CUML_EXPORT void fit_transform(raft::handle_t& handle,
-                               std::vector<MLCommon::Matrix::Data<double>*>& input_data,
-                               MLCommon::Matrix::PartDescriptor& input_desc,
-                               std::vector<MLCommon::Matrix::Data<double>*>& trans_data,
-                               MLCommon::Matrix::PartDescriptor& trans_desc,
-                               double* components,
-                               double* explained_var,
-                               double* explained_var_ratio,
-                               double* singular_vals,
-                               paramsTSVDMG& prms,
-                               bool verbose,
-                               bool flip_signs_based_on_U);
+void fit_transform(raft::handle_t& handle,
+                   std::vector<MLCommon::Matrix::Data<double>*>& input_data,
+                   MLCommon::Matrix::PartDescriptor& input_desc,
+                   std::vector<MLCommon::Matrix::Data<double>*>& trans_data,
+                   MLCommon::Matrix::PartDescriptor& trans_desc,
+                   double* components,
+                   double* explained_var,
+                   double* explained_var_ratio,
+                   double* singular_vals,
+                   paramsTSVDMG& prms,
+                   bool verbose,
+                   bool flip_signs_based_on_U);
 
 /**
  * @brief performs MNMG transform operation for the tsvd.
@@ -101,23 +101,23 @@ CUML_EXPORT void fit_transform(raft::handle_t& handle,
  * @param[in] prms: data structure that includes all the parameters from input size to algorithm
  * @param[in] verbose
  */
-CUML_EXPORT void transform(raft::handle_t& handle,
-                           MLCommon::Matrix::RankSizePair** rank_sizes,
-                           std::uint32_t n_parts,
-                           MLCommon::Matrix::Data<float>** input,
-                           float* components,
-                           MLCommon::Matrix::Data<float>** trans_input,
-                           paramsTSVDMG& prms,
-                           bool verbose);
+void transform(raft::handle_t& handle,
+               MLCommon::Matrix::RankSizePair** rank_sizes,
+               std::uint32_t n_parts,
+               MLCommon::Matrix::Data<float>** input,
+               float* components,
+               MLCommon::Matrix::Data<float>** trans_input,
+               paramsTSVDMG& prms,
+               bool verbose);
 
-CUML_EXPORT void transform(raft::handle_t& handle,
-                           MLCommon::Matrix::RankSizePair** rank_sizes,
-                           std::uint32_t n_parts,
-                           MLCommon::Matrix::Data<double>** input,
-                           double* components,
-                           MLCommon::Matrix::Data<double>** trans_input,
-                           paramsTSVDMG& prms,
-                           bool verbose);
+void transform(raft::handle_t& handle,
+               MLCommon::Matrix::RankSizePair** rank_sizes,
+               std::uint32_t n_parts,
+               MLCommon::Matrix::Data<double>** input,
+               double* components,
+               MLCommon::Matrix::Data<double>** trans_input,
+               paramsTSVDMG& prms,
+               bool verbose);
 
 /**
  * @brief performs MNMG inverse transform operation for the output.
@@ -130,23 +130,23 @@ CUML_EXPORT void transform(raft::handle_t& handle,
  * @param[in] prms: data structure that includes all the parameters from input size to algorithm
  * @param[in] verbose
  */
-CUML_EXPORT void inverse_transform(raft::handle_t& handle,
-                                   MLCommon::Matrix::RankSizePair** rank_sizes,
-                                   std::uint32_t n_parts,
-                                   MLCommon::Matrix::Data<float>** trans_input,
-                                   float* components,
-                                   MLCommon::Matrix::Data<float>** input,
-                                   paramsTSVDMG& prms,
-                                   bool verbose);
+void inverse_transform(raft::handle_t& handle,
+                       MLCommon::Matrix::RankSizePair** rank_sizes,
+                       std::uint32_t n_parts,
+                       MLCommon::Matrix::Data<float>** trans_input,
+                       float* components,
+                       MLCommon::Matrix::Data<float>** input,
+                       paramsTSVDMG& prms,
+                       bool verbose);
 
-CUML_EXPORT void inverse_transform(raft::handle_t& handle,
-                                   MLCommon::Matrix::RankSizePair** rank_sizes,
-                                   std::uint32_t n_parts,
-                                   MLCommon::Matrix::Data<double>** trans_input,
-                                   double* components,
-                                   MLCommon::Matrix::Data<double>** input,
-                                   paramsTSVDMG& prms,
-                                   bool verbose);
+void inverse_transform(raft::handle_t& handle,
+                       MLCommon::Matrix::RankSizePair** rank_sizes,
+                       std::uint32_t n_parts,
+                       MLCommon::Matrix::Data<double>** trans_input,
+                       double* components,
+                       MLCommon::Matrix::Data<double>** input,
+                       paramsTSVDMG& prms,
+                       bool verbose);
 
 };  // end namespace opg
 };  // namespace TSVD

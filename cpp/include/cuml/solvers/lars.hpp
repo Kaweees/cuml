@@ -46,22 +46,22 @@ namespace Lars {
  * @param eps numeric parameter for Cholesky rank one update
  */
 template <typename math_t, typename idx_t>
-CUML_EXPORT void larsFit(const raft::handle_t& handle,
-                         math_t* X,
-                         idx_t n_rows,
-                         idx_t n_cols,
-                         const math_t* y,
-                         math_t* beta,
-                         idx_t* active_idx,
-                         math_t* alphas,
-                         idx_t* n_active,
-                         math_t* Gram,
-                         int max_iter,
-                         math_t* coef_path,
-                         rapids_logger::level_enum verbosity,
-                         idx_t ld_X,
-                         idx_t ld_G,
-                         math_t eps);
+void larsFit(const raft::handle_t& handle,
+             math_t* X,
+             idx_t n_rows,
+             idx_t n_cols,
+             const math_t* y,
+             math_t* beta,
+             idx_t* active_idx,
+             math_t* alphas,
+             idx_t* n_active,
+             math_t* Gram,
+             int max_iter,
+             math_t* coef_path,
+             rapids_logger::level_enum verbosity,
+             idx_t ld_X,
+             idx_t ld_G,
+             math_t eps);
 
 /**
  * @brief Predict with LARS regressor.
@@ -81,16 +81,16 @@ CUML_EXPORT void larsFit(const raft::handle_t& handle,
  *     allocated on entry.
  */
 template <typename math_t, typename idx_t>
-CUML_EXPORT void larsPredict(const raft::handle_t& handle,
-                             const math_t* X,
-                             idx_t n_rows,
-                             idx_t n_cols,
-                             idx_t ld_X,
-                             const math_t* beta,
-                             idx_t n_active,
-                             idx_t* active_idx,
-                             math_t intercept,
-                             math_t* preds);
+void larsPredict(const raft::handle_t& handle,
+                 const math_t* X,
+                 idx_t n_rows,
+                 idx_t n_cols,
+                 idx_t ld_X,
+                 const math_t* beta,
+                 idx_t n_active,
+                 idx_t* active_idx,
+                 math_t intercept,
+                 math_t* preds);
 };  // namespace Lars
 };  // namespace Solver
 };  // end namespace ML

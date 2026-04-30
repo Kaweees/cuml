@@ -1,10 +1,9 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2023-2026, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2023-2025, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 #include <cuml/fil/detail/infer/cpu.hpp>
 #include <cuml/fil/detail/specializations/infer_macros.hpp>
-#pragma GCC visibility push(default)
 namespace ML {
 namespace fil {
 namespace detail {
@@ -13,5 +12,4 @@ CUML_FIL_INFER_ALL(template, raft_proto::device_type::cpu, 5)
 }
 }  // namespace detail
 }  // namespace fil
-#pragma GCC visibility pop
 }  // namespace ML

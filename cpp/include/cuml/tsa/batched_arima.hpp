@@ -25,11 +25,11 @@ enum LoglikeMethod { CSS, MLE };
  * @param[in]  batch_size Batch size
  * @param[out] param_vec  Compact parameter array
  */
-CUML_EXPORT void pack(raft::handle_t& handle,
-                      const ARIMAParams<double>& params,
-                      const ARIMAOrder& order,
-                      int batch_size,
-                      double* param_vec);
+void pack(raft::handle_t& handle,
+          const ARIMAParams<double>& params,
+          const ARIMAOrder& order,
+          int batch_size,
+          double* param_vec);
 
 /**
  * Unpack a compact array into separate parameter arrays
@@ -40,11 +40,11 @@ CUML_EXPORT void pack(raft::handle_t& handle,
  * @param[in]  batch_size Batch size
  * @param[in]  param_vec  Compact parameter array
  */
-CUML_EXPORT void unpack(raft::handle_t& handle,
-                        ARIMAParams<double>& params,
-                        const ARIMAOrder& order,
-                        int batch_size,
-                        const double* param_vec);
+void unpack(raft::handle_t& handle,
+            ARIMAParams<double>& params,
+            const ARIMAOrder& order,
+            int batch_size,
+            const double* param_vec);
 
 /**
  * Detect missing observations in a time series
@@ -53,7 +53,7 @@ CUML_EXPORT void unpack(raft::handle_t& handle,
  * @param[in]  d_y        Time series
  * @param[in]  n_elem     Total number of elements in the dataset
  */
-CUML_EXPORT bool detect_missing(raft::handle_t& handle, const double* d_y, int n_elem);
+bool detect_missing(raft::handle_t& handle, const double* d_y, int n_elem);
 
 /**
  * Compute the differenced series (seasonal and/or non-seasonal differences)
@@ -65,12 +65,12 @@ CUML_EXPORT bool detect_missing(raft::handle_t& handle, const double* d_y, int n
  * @param[in]  n_obs      Number of observations
  * @param[in]  order      ARIMA order
  */
-CUML_EXPORT void batched_diff(raft::handle_t& handle,
-                              double* d_y_diff,
-                              const double* d_y,
-                              int batch_size,
-                              int n_obs,
-                              const ARIMAOrder& order);
+void batched_diff(raft::handle_t& handle,
+                  double* d_y_diff,
+                  const double* d_y,
+                  int batch_size,
+                  int n_obs,
+                  const ARIMAOrder& order);
 
 /**
  * Compute the loglikelihood of the given parameter on the given time series
@@ -94,19 +94,19 @@ CUML_EXPORT void batched_diff(raft::handle_t& handle,
  * @param[in]  truncate     For CSS, start the sum-of-squares after a given
  *                          number of observations
  */
-CUML_EXPORT void batched_loglike(raft::handle_t& handle,
-                                 const ARIMAMemory<double>& arima_mem,
-                                 const double* d_y,
-                                 const double* d_exog,
-                                 int batch_size,
-                                 int n_obs,
-                                 const ARIMAOrder& order,
-                                 const double* d_params,
-                                 double* loglike,
-                                 bool trans           = true,
-                                 bool host_loglike    = true,
-                                 LoglikeMethod method = MLE,
-                                 int truncate         = 0);
+void batched_loglike(raft::handle_t& handle,
+                     const ARIMAMemory<double>& arima_mem,
+                     const double* d_y,
+                     const double* d_exog,
+                     int batch_size,
+                     int n_obs,
+                     const ARIMAOrder& order,
+                     const double* d_params,
+                     double* loglike,
+                     bool trans           = true,
+                     bool host_loglike    = true,
+                     LoglikeMethod method = MLE,
+                     int truncate         = 0);
 
 /**
  * Compute the loglikelihood of the given parameter on the given time series
@@ -140,25 +140,25 @@ CUML_EXPORT void batched_loglike(raft::handle_t& handle,
  * @param[out] d_lower      Lower limit of the prediction interval
  * @param[out] d_upper      Upper limit of the prediction interval
  */
-CUML_EXPORT void batched_loglike(raft::handle_t& handle,
-                                 const ARIMAMemory<double>& arima_mem,
-                                 const double* d_y,
-                                 const double* d_exog,
-                                 int batch_size,
-                                 int n_obs,
-                                 const ARIMAOrder& order,
-                                 const ARIMAParams<double>& params,
-                                 double* loglike,
-                                 bool trans               = true,
-                                 bool host_loglike        = true,
-                                 LoglikeMethod method     = MLE,
-                                 int truncate             = 0,
-                                 int fc_steps             = 0,
-                                 double* d_fc             = nullptr,
-                                 const double* d_exog_fut = nullptr,
-                                 double level             = 0,
-                                 double* d_lower          = nullptr,
-                                 double* d_upper          = nullptr);
+void batched_loglike(raft::handle_t& handle,
+                     const ARIMAMemory<double>& arima_mem,
+                     const double* d_y,
+                     const double* d_exog,
+                     int batch_size,
+                     int n_obs,
+                     const ARIMAOrder& order,
+                     const ARIMAParams<double>& params,
+                     double* loglike,
+                     bool trans               = true,
+                     bool host_loglike        = true,
+                     LoglikeMethod method     = MLE,
+                     int truncate             = 0,
+                     int fc_steps             = 0,
+                     double* d_fc             = nullptr,
+                     const double* d_exog_fut = nullptr,
+                     double level             = 0,
+                     double* d_lower          = nullptr,
+                     double* d_upper          = nullptr);
 
 /**
  * Compute the gradient of the log-likelihood
@@ -180,19 +180,19 @@ CUML_EXPORT void batched_loglike(raft::handle_t& handle,
  * @param[in]  truncate     For CSS, start the sum-of-squares after a given
  *                          number of observations
  */
-CUML_EXPORT void batched_loglike_grad(raft::handle_t& handle,
-                                      const ARIMAMemory<double>& arima_mem,
-                                      const double* d_y,
-                                      const double* d_exog,
-                                      int batch_size,
-                                      int n_obs,
-                                      const ARIMAOrder& order,
-                                      const double* d_x,
-                                      double* d_grad,
-                                      double h,
-                                      bool trans           = true,
-                                      LoglikeMethod method = MLE,
-                                      int truncate         = 0);
+void batched_loglike_grad(raft::handle_t& handle,
+                          const ARIMAMemory<double>& arima_mem,
+                          const double* d_y,
+                          const double* d_exog,
+                          int batch_size,
+                          int n_obs,
+                          const ARIMAOrder& order,
+                          const double* d_x,
+                          double* d_grad,
+                          double h,
+                          bool trans           = true,
+                          LoglikeMethod method = MLE,
+                          int truncate         = 0);
 
 /**
  * Batched in-sample and out-of-sample prediction of a time-series given all
@@ -220,22 +220,22 @@ CUML_EXPORT void batched_loglike_grad(raft::handle_t& handle,
  * @param[out] d_lower     Lower limit of the prediction interval
  * @param[out] d_upper     Upper limit of the prediction interval
  */
-CUML_EXPORT void predict(raft::handle_t& handle,
-                         const ARIMAMemory<double>& arima_mem,
-                         const double* d_y,
-                         const double* d_exog,
-                         const double* d_exog_fut,
-                         int batch_size,
-                         int n_obs,
-                         int start,
-                         int end,
-                         const ARIMAOrder& order,
-                         const ARIMAParams<double>& params,
-                         double* d_y_p,
-                         bool pre_diff   = true,
-                         double level    = 0,
-                         double* d_lower = nullptr,
-                         double* d_upper = nullptr);
+void predict(raft::handle_t& handle,
+             const ARIMAMemory<double>& arima_mem,
+             const double* d_y,
+             const double* d_exog,
+             const double* d_exog_fut,
+             int batch_size,
+             int n_obs,
+             int start,
+             int end,
+             const ARIMAOrder& order,
+             const ARIMAParams<double>& params,
+             double* d_y_p,
+             bool pre_diff   = true,
+             double level    = 0,
+             double* d_lower = nullptr,
+             double* d_upper = nullptr);
 
 /**
  * Compute an information criterion (AIC, AICc, BIC)
@@ -256,16 +256,16 @@ CUML_EXPORT void predict(raft::handle_t& handle,
  * @param[in]  ic_type     Type of information criterion wanted.
  *                         0: AIC, 1: AICc, 2: BIC
  */
-CUML_EXPORT void information_criterion(raft::handle_t& handle,
-                                       const ARIMAMemory<double>& arima_mem,
-                                       const double* d_y,
-                                       const double* d_exog,
-                                       int batch_size,
-                                       int n_obs,
-                                       const ARIMAOrder& order,
-                                       const ARIMAParams<double>& params,
-                                       double* ic,
-                                       int ic_type);
+void information_criterion(raft::handle_t& handle,
+                           const ARIMAMemory<double>& arima_mem,
+                           const double* d_y,
+                           const double* d_exog,
+                           int batch_size,
+                           int n_obs,
+                           const ARIMAOrder& order,
+                           const ARIMAParams<double>& params,
+                           double* ic,
+                           int ic_type);
 
 /**
  * Provide initial estimates to ARIMA parameters mu, AR, and MA
@@ -282,13 +282,13 @@ CUML_EXPORT void information_criterion(raft::handle_t& handle,
  * @param[in]  order       ARIMA hyper-parameters
  * @param[in]  missing     Are there missing observations?
  */
-CUML_EXPORT void estimate_x0(raft::handle_t& handle,
-                             ARIMAParams<double>& params,
-                             const double* d_y,
-                             const double* d_exog,
-                             int batch_size,
-                             int n_obs,
-                             const ARIMAOrder& order,
-                             bool missing);
+void estimate_x0(raft::handle_t& handle,
+                 ARIMAParams<double>& params,
+                 const double* d_y,
+                 const double* d_exog,
+                 int batch_size,
+                 int n_obs,
+                 const ARIMAOrder& order,
+                 bool missing);
 
 }  // namespace ML

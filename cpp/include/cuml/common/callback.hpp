@@ -12,12 +12,12 @@
 namespace ML {
 namespace Internals {
 
-class CUML_EXPORT Callback {
+class Callback {
  public:
   virtual ~Callback() {}
 };
 
-class CUML_EXPORT GraphBasedDimRedCallback : public Callback {
+class GraphBasedDimRedCallback : public Callback {
  public:
   template <typename T>
   void setup(int n, int n_components)

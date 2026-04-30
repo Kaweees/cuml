@@ -32,7 +32,7 @@ namespace UMAP {
  * @param[out] params: pointer to ML::UMAPParams object of which the a and b parameters will be
  * updated
  */
-CUML_EXPORT void find_ab(const raft::handle_t& handle, UMAPParams* params);
+void find_ab(const raft::handle_t& handle, UMAPParams* params);
 
 /**
  * Returns the simplical set to be consumed by the ML::UMAP::refine function.
@@ -47,14 +47,14 @@ CUML_EXPORT void find_ab(const raft::handle_t& handle, UMAPParams* params);
  * @param[in] params: pointer to ML::UMAPParams object
  * @return: simplical set as a unique pointer to a raft::sparse::COO object
  */
-CUML_EXPORT std::unique_ptr<raft::sparse::COO<float, int>> get_graph(const raft::handle_t& handle,
-                                                                     float* X,  // input matrix
-                                                                     float* y,  // labels
-                                                                     int n,
-                                                                     int d,
-                                                                     int64_t* knn_indices,
-                                                                     float* knn_dists,
-                                                                     UMAPParams* params);
+std::unique_ptr<raft::sparse::COO<float, int>> get_graph(const raft::handle_t& handle,
+                                                         float* X,  // input matrix
+                                                         float* y,  // labels
+                                                         int n,
+                                                         int d,
+                                                         int64_t* knn_indices,
+                                                         float* knn_dists,
+                                                         UMAPParams* params);
 
 /**
  * Performs a UMAP fit on existing embeddings without reinitializing them, which enables
@@ -69,13 +69,13 @@ CUML_EXPORT std::unique_ptr<raft::sparse::COO<float, int>> get_graph(const raft:
  * @param[out] embeddings: pointer to current embedding with shape n * n_components, stores updated
  * embeddings on executing refine
  */
-CUML_EXPORT void refine(const raft::handle_t& handle,
-                        float* X,
-                        int n,
-                        int d,
-                        raft::sparse::COO<float, int>* graph,
-                        UMAPParams* params,
-                        float* embeddings);
+void refine(const raft::handle_t& handle,
+            float* X,
+            int n,
+            int d,
+            raft::sparse::COO<float, int>* graph,
+            UMAPParams* params,
+            float* embeddings);
 
 /**
  * Initializes embeddings and performs a UMAP fit on them, which enables
@@ -90,13 +90,13 @@ CUML_EXPORT void refine(const raft::handle_t& handle,
  * @param[out] embeddings: pointer to current embedding with shape n * n_components, stores updated
  * embeddings on executing refine
  */
-CUML_EXPORT void init_and_refine(const raft::handle_t& handle,
-                                 float* X,
-                                 int n,
-                                 int d,
-                                 raft::sparse::COO<float, int>* graph,
-                                 UMAPParams* params,
-                                 float* embeddings);
+void init_and_refine(const raft::handle_t& handle,
+                     float* X,
+                     int n,
+                     int d,
+                     raft::sparse::COO<float, int>* graph,
+                     UMAPParams* params,
+                     float* embeddings);
 
 /**
  * Dense fit
@@ -115,18 +115,18 @@ CUML_EXPORT void init_and_refine(const raft::handle_t& handle,
  * @param[out] sigmas: optional output array for per-point sigma values (size n, device memory)
  * @param[out] rhos: optional output array for per-point rho values (size n, device memory)
  */
-CUML_EXPORT void fit(const raft::handle_t& handle,
-                     float* X,
-                     float* y,
-                     int n,
-                     int d,
-                     int64_t* knn_indices,
-                     float* knn_dists,
-                     UMAPParams* params,
-                     std::unique_ptr<rmm::device_buffer>& embeddings,
-                     raft::host_coo_matrix<float, int, int, uint64_t>& graph,
-                     float* sigmas = nullptr,
-                     float* rhos   = nullptr);
+void fit(const raft::handle_t& handle,
+         float* X,
+         float* y,
+         int n,
+         int d,
+         int64_t* knn_indices,
+         float* knn_dists,
+         UMAPParams* params,
+         std::unique_ptr<rmm::device_buffer>& embeddings,
+         raft::host_coo_matrix<float, int, int, uint64_t>& graph,
+         float* sigmas = nullptr,
+         float* rhos   = nullptr);
 
 /**
  * Sparse fit
@@ -146,19 +146,19 @@ CUML_EXPORT void fit(const raft::handle_t& handle,
  * embeddings
  * @param[out] graph: pointer to fuzzy simplicial set graph
  */
-CUML_EXPORT void fit_sparse(const raft::handle_t& handle,
-                            int* indptr,
-                            int* indices,
-                            float* data,
-                            size_t nnz,
-                            float* y,
-                            int n,
-                            int d,
-                            int* knn_indices,
-                            float* knn_dists,
-                            UMAPParams* params,
-                            std::unique_ptr<rmm::device_buffer>& embeddings,
-                            raft::host_coo_matrix<float, int, int, uint64_t>& graph);
+void fit_sparse(const raft::handle_t& handle,
+                int* indptr,
+                int* indices,
+                float* data,
+                size_t nnz,
+                float* y,
+                int n,
+                int d,
+                int* knn_indices,
+                float* knn_dists,
+                UMAPParams* params,
+                std::unique_ptr<rmm::device_buffer>& embeddings,
+                raft::host_coo_matrix<float, int, int, uint64_t>& graph);
 
 /**
  * Dense transform
@@ -174,16 +174,16 @@ CUML_EXPORT void fit_sparse(const raft::handle_t& handle,
  * @param[in] params: pointer to ML::UMAPParams object
  * @param[out] transformed: pointer to embedding produced through projection
  */
-CUML_EXPORT void transform(const raft::handle_t& handle,
-                           float* X,
-                           int n,
-                           int d,
-                           float* orig_X,
-                           int orig_n,
-                           float* embedding,
-                           int embedding_n,
-                           UMAPParams* params,
-                           float* transformed);
+void transform(const raft::handle_t& handle,
+               float* X,
+               int n,
+               int d,
+               float* orig_X,
+               int orig_n,
+               float* embedding,
+               int embedding_n,
+               UMAPParams* params,
+               float* transformed);
 
 /**
  * Sparse transform
@@ -205,22 +205,22 @@ CUML_EXPORT void transform(const raft::handle_t& handle,
  * @param[in] params: pointer to ML::UMAPParams object
  * @param[out] transformed: pointer to embedding produced through projection
  */
-CUML_EXPORT void transform_sparse(const raft::handle_t& handle,
-                                  int* indptr,
-                                  int* indices,
-                                  float* data,
-                                  size_t nnz,
-                                  int n,
-                                  int d,
-                                  int* orig_x_indptr,
-                                  int* orig_x_indices,
-                                  float* orig_x_data,
-                                  size_t orig_nnz,
-                                  int orig_n,
-                                  float* embedding,
-                                  int embedding_n,
-                                  UMAPParams* params,
-                                  float* transformed);
+void transform_sparse(const raft::handle_t& handle,
+                      int* indptr,
+                      int* indices,
+                      float* data,
+                      size_t nnz,
+                      int n,
+                      int d,
+                      int* orig_x_indptr,
+                      int* orig_x_indices,
+                      float* orig_x_data,
+                      size_t orig_nnz,
+                      int orig_n,
+                      float* embedding,
+                      int embedding_n,
+                      UMAPParams* params,
+                      float* transformed);
 
 /**
  * Inverse transform - optimize layout in original space
@@ -241,20 +241,20 @@ CUML_EXPORT void transform_sparse(const raft::handle_t& handle,
  * @param[in] params: pointer to ML::UMAPParams object
  * @param[in] n_epochs: number of optimization epochs
  */
-CUML_EXPORT void inverse_transform(const raft::handle_t& handle,
-                                   float* inv_transformed,
-                                   int n,
-                                   int n_features,
-                                   float* orig_X,
-                                   int orig_n,
-                                   int* graph_rows,
-                                   int* graph_cols,
-                                   float* graph_vals,
-                                   int nnz,
-                                   float* sigmas,
-                                   float* rhos,
-                                   UMAPParams* params,
-                                   int n_epochs);
+void inverse_transform(const raft::handle_t& handle,
+                       float* inv_transformed,
+                       int n,
+                       int n_features,
+                       float* orig_X,
+                       int orig_n,
+                       int* graph_rows,
+                       int* graph_cols,
+                       float* graph_vals,
+                       int nnz,
+                       float* sigmas,
+                       float* rhos,
+                       UMAPParams* params,
+                       int n_epochs);
 
 }  // namespace UMAP
 }  // namespace ML

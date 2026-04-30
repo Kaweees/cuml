@@ -26,7 +26,7 @@ namespace genetic {
  * node var_node{20};
  * @endcode
  */
-struct CUML_EXPORT node {
+struct node {
   /**
    * @brief All possible types of nodes. For simplicity, all the terminal and
    *        non-terminal types are clubbed together

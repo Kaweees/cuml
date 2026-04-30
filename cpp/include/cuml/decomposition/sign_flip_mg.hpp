@@ -30,27 +30,27 @@ namespace opg {
  * @param[in] center: whether to center input_data by columns
  * @{
  */
-CUML_EXPORT void sign_flip_components_u(raft::handle_t& handle,
-                                        std::vector<MLCommon::Matrix::Data<float>*>& input_data,
-                                        MLCommon::Matrix::PartDescriptor& input_desc,
-                                        float* components,
-                                        std::size_t n_samples,
-                                        std::size_t n_features,
-                                        std::size_t n_components,
-                                        cudaStream_t* streams,
-                                        std::uint32_t n_stream,
-                                        bool center);
+void sign_flip_components_u(raft::handle_t& handle,
+                            std::vector<MLCommon::Matrix::Data<float>*>& input_data,
+                            MLCommon::Matrix::PartDescriptor& input_desc,
+                            float* components,
+                            std::size_t n_samples,
+                            std::size_t n_features,
+                            std::size_t n_components,
+                            cudaStream_t* streams,
+                            std::uint32_t n_stream,
+                            bool center);
 
-CUML_EXPORT void sign_flip_components_u(raft::handle_t& handle,
-                                        std::vector<MLCommon::Matrix::Data<double>*>& input_data,
-                                        MLCommon::Matrix::PartDescriptor& input_desc,
-                                        double* components,
-                                        std::size_t n_samples,
-                                        std::size_t n_features,
-                                        std::size_t n_components,
-                                        cudaStream_t* streams,
-                                        std::uint32_t n_stream,
-                                        bool center);
+void sign_flip_components_u(raft::handle_t& handle,
+                            std::vector<MLCommon::Matrix::Data<double>*>& input_data,
+                            MLCommon::Matrix::PartDescriptor& input_desc,
+                            double* components,
+                            std::size_t n_samples,
+                            std::size_t n_features,
+                            std::size_t n_components,
+                            cudaStream_t* streams,
+                            std::uint32_t n_stream,
+                            bool center);
 
 /**
  * @brief sign flip for PCA and tSVD. This is used to stabilize the sign of column major eigen
@@ -64,21 +64,21 @@ CUML_EXPORT void sign_flip_components_u(raft::handle_t& handle,
  * @param[in] n_stream: number of streams
  * @{
  */
-CUML_EXPORT void sign_flip(raft::handle_t& handle,
-                           std::vector<MLCommon::Matrix::Data<float>*>& input_data,
-                           MLCommon::Matrix::PartDescriptor& input_desc,
-                           float* components,
-                           std::size_t n_components,
-                           cudaStream_t* streams,
-                           std::uint32_t n_stream);
+void sign_flip(raft::handle_t& handle,
+               std::vector<MLCommon::Matrix::Data<float>*>& input_data,
+               MLCommon::Matrix::PartDescriptor& input_desc,
+               float* components,
+               std::size_t n_components,
+               cudaStream_t* streams,
+               std::uint32_t n_stream);
 
-CUML_EXPORT void sign_flip(raft::handle_t& handle,
-                           std::vector<MLCommon::Matrix::Data<double>*>& input_data,
-                           MLCommon::Matrix::PartDescriptor& input_desc,
-                           double* components,
-                           std::size_t n_components,
-                           cudaStream_t* streams,
-                           std::uint32_t n_stream);
+void sign_flip(raft::handle_t& handle,
+               std::vector<MLCommon::Matrix::Data<double>*>& input_data,
+               MLCommon::Matrix::PartDescriptor& input_desc,
+               double* components,
+               std::size_t n_components,
+               cudaStream_t* streams,
+               std::uint32_t n_stream);
 
 };  // end namespace opg
 };  // end namespace PCA

@@ -78,16 +78,16 @@ struct DecisionTreeParams {
               in a batch. This is used only for batched-level algo. Default
               value 4096.
  */
-CUML_EXPORT void set_tree_params(DecisionTreeParams& params,
-                                 int cfg_max_depth               = -1,
-                                 int cfg_max_leaves              = -1,
-                                 float cfg_max_features          = 1.0f,
-                                 int cfg_max_n_bins              = 128,
-                                 int cfg_min_samples_leaf        = 1,
-                                 int cfg_min_samples_split       = 2,
-                                 float cfg_min_impurity_decrease = 0.0f,
-                                 CRITERION cfg_split_criterion   = CRITERION_END,
-                                 int cfg_max_batch_size          = 4096);
+void set_tree_params(DecisionTreeParams& params,
+                     int cfg_max_depth               = -1,
+                     int cfg_max_leaves              = -1,
+                     float cfg_max_features          = 1.0f,
+                     int cfg_max_n_bins              = 128,
+                     int cfg_min_samples_leaf        = 1,
+                     int cfg_min_samples_split       = 2,
+                     float cfg_min_impurity_decrease = 0.0f,
+                     CRITERION cfg_split_criterion   = CRITERION_END,
+                     int cfg_max_batch_size          = 4096);
 
 template <class T, class L>
 struct TreeMetaDataNode {

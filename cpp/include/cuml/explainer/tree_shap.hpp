@@ -24,38 +24,38 @@ using TreePathHandle =
 
 using FloatPointer = std::variant<float*, double*>;
 
-CUML_EXPORT TreePathHandle extract_path_info(TreeliteModelHandle model);
+TreePathHandle extract_path_info(TreeliteModelHandle model);
 
-CUML_EXPORT void gpu_treeshap(TreePathHandle path_info,
-                              const FloatPointer data,
-                              std::size_t n_rows,
-                              std::size_t n_cols,
-                              FloatPointer out_preds,
-                              std::size_t out_preds_size);
+void gpu_treeshap(TreePathHandle path_info,
+                  const FloatPointer data,
+                  std::size_t n_rows,
+                  std::size_t n_cols,
+                  FloatPointer out_preds,
+                  std::size_t out_preds_size);
 
-CUML_EXPORT void gpu_treeshap_interventional(TreePathHandle path_info,
-                                             const FloatPointer data,
-                                             std::size_t n_rows,
-                                             std::size_t n_cols,
-                                             const FloatPointer background_data,
-                                             std::size_t background_n_rows,
-                                             std::size_t background_n_cols,
-                                             FloatPointer out_preds,
-                                             std::size_t out_preds_size);
+void gpu_treeshap_interventional(TreePathHandle path_info,
+                                 const FloatPointer data,
+                                 std::size_t n_rows,
+                                 std::size_t n_cols,
+                                 const FloatPointer background_data,
+                                 std::size_t background_n_rows,
+                                 std::size_t background_n_cols,
+                                 FloatPointer out_preds,
+                                 std::size_t out_preds_size);
 
-CUML_EXPORT void gpu_treeshap_interactions(TreePathHandle path_info,
-                                           const FloatPointer data,
-                                           std::size_t n_rows,
-                                           std::size_t n_cols,
-                                           FloatPointer out_preds,
-                                           std::size_t out_preds_size);
+void gpu_treeshap_interactions(TreePathHandle path_info,
+                               const FloatPointer data,
+                               std::size_t n_rows,
+                               std::size_t n_cols,
+                               FloatPointer out_preds,
+                               std::size_t out_preds_size);
 
-CUML_EXPORT void gpu_treeshap_taylor_interactions(TreePathHandle path_info,
-                                                  const FloatPointer data,
-                                                  std::size_t n_rows,
-                                                  std::size_t n_cols,
-                                                  FloatPointer out_preds,
-                                                  std::size_t out_preds_size);
+void gpu_treeshap_taylor_interactions(TreePathHandle path_info,
+                                      const FloatPointer data,
+                                      std::size_t n_rows,
+                                      std::size_t n_cols,
+                                      FloatPointer out_preds,
+                                      std::size_t out_preds_size);
 
 }  // namespace Explainer
 }  // namespace ML
