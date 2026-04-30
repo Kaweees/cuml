@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -9,6 +9,7 @@
 
 #include <cuml/matrix/kernel_params.hpp>
 #include <cuml/svm/svc.hpp>
+#include <cuml/svm/svr.hpp>
 
 #include <raft/core/handle.hpp>
 #include <raft/label/classlabels.cuh>
@@ -20,6 +21,7 @@ namespace ML {
 namespace SVM {
 
 // Explicit instantiation for the library
+#pragma GCC visibility push(default)
 template int svrFit<float>(const raft::handle_t& handle,
                            float* X,
                            int n_rows,
@@ -65,6 +67,7 @@ template int svrFitSparse<double>(const raft::handle_t& handle,
                                   ML::matrix::KernelParams& kernel_params,
                                   SvmModel<double>& model,
                                   const double* sample_weight);
+#pragma GCC visibility pop
 
 };  // namespace SVM
 };  // end namespace ML

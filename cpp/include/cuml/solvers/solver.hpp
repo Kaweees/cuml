@@ -1,9 +1,11 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2018-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2018-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
+
+#include <cuml/common/export.hpp>
 
 namespace raft {
 class handle_t;
@@ -12,83 +14,83 @@ class handle_t;
 namespace ML {
 namespace Solver {
 
-void sgdFit(raft::handle_t& handle,
-            float* input,
-            int n_rows,
-            int n_cols,
-            float* labels,
-            float* coef,
-            float* intercept,
-            bool fit_intercept,
-            int batch_size,
-            int epochs,
-            int lr_type,
-            float eta0,
-            float power_t,
-            int loss,
-            int penalty,
-            float alpha,
-            float l1_ratio,
-            bool shuffle,
-            float tol,
-            int n_iter_no_change);
+CUML_EXPORT void sgdFit(raft::handle_t& handle,
+                        float* input,
+                        int n_rows,
+                        int n_cols,
+                        float* labels,
+                        float* coef,
+                        float* intercept,
+                        bool fit_intercept,
+                        int batch_size,
+                        int epochs,
+                        int lr_type,
+                        float eta0,
+                        float power_t,
+                        int loss,
+                        int penalty,
+                        float alpha,
+                        float l1_ratio,
+                        bool shuffle,
+                        float tol,
+                        int n_iter_no_change);
 
-void sgdFit(raft::handle_t& handle,
-            double* input,
-            int n_rows,
-            int n_cols,
-            double* labels,
-            double* coef,
-            double* intercept,
-            bool fit_intercept,
-            int batch_size,
-            int epochs,
-            int lr_type,
-            double eta0,
-            double power_t,
-            int loss,
-            int penalty,
-            double alpha,
-            double l1_ratio,
-            bool shuffle,
-            double tol,
-            int n_iter_no_change);
+CUML_EXPORT void sgdFit(raft::handle_t& handle,
+                        double* input,
+                        int n_rows,
+                        int n_cols,
+                        double* labels,
+                        double* coef,
+                        double* intercept,
+                        bool fit_intercept,
+                        int batch_size,
+                        int epochs,
+                        int lr_type,
+                        double eta0,
+                        double power_t,
+                        int loss,
+                        int penalty,
+                        double alpha,
+                        double l1_ratio,
+                        bool shuffle,
+                        double tol,
+                        int n_iter_no_change);
 
-void sgdPredict(raft::handle_t& handle,
-                const float* input,
-                int n_rows,
-                int n_cols,
-                const float* coef,
-                float intercept,
-                float* preds,
-                int loss);
+CUML_EXPORT void sgdPredict(raft::handle_t& handle,
+                            const float* input,
+                            int n_rows,
+                            int n_cols,
+                            const float* coef,
+                            float intercept,
+                            float* preds,
+                            int loss);
 
-void sgdPredict(raft::handle_t& handle,
-                const double* input,
-                int n_rows,
-                int n_cols,
-                const double* coef,
-                double intercept,
-                double* preds,
-                int loss);
+CUML_EXPORT void sgdPredict(raft::handle_t& handle,
+                            const double* input,
+                            int n_rows,
+                            int n_cols,
+                            const double* coef,
+                            double intercept,
+                            double* preds,
+                            int loss);
 
-void sgdPredictBinaryClass(raft::handle_t& handle,
-                           const float* input,
-                           int n_rows,
-                           int n_cols,
-                           const float* coef,
-                           float intercept,
-                           float* preds,
-                           int loss);
+CUML_EXPORT void sgdPredictBinaryClass(raft::handle_t& handle,
+                                       const float* input,
+                                       int n_rows,
+                                       int n_cols,
+                                       const float* coef,
+                                       float intercept,
+                                       float* preds,
+                                       int loss);
 
-void sgdPredictBinaryClass(raft::handle_t& handle,
-                           const double* input,
-                           int n_rows,
-                           int n_cols,
-                           const double* coef,
-                           double intercept,
-                           double* preds,
-                           int loss);
+CUML_EXPORT void sgdPredictBinaryClass(raft::handle_t& handle,
+                                       const double* input,
+                                       int n_rows,
+                                       int n_cols,
+                                       const double* coef,
+                                       double intercept,
+                                       double* preds,
+                                       int loss);
 
 /**
  * Fits a linear, lasso, and elastic-net regression model using Coordinate Descent solver.
@@ -137,55 +139,55 @@ void sgdPredictBinaryClass(raft::handle_t& handle,
  * @return n_iter
  *        Number of iterations the solver ran for.
  */
-int cdFit(raft::handle_t& handle,
-          float* input,
-          int n_rows,
-          int n_cols,
-          float* labels,
-          float* coef,
-          float* intercept,
-          bool fit_intercept,
-          int epochs,
-          int loss,
-          float alpha,
-          float l1_ratio,
-          bool shuffle,
-          float tol,
-          float* sample_weight = nullptr);
+CUML_EXPORT int cdFit(raft::handle_t& handle,
+                      float* input,
+                      int n_rows,
+                      int n_cols,
+                      float* labels,
+                      float* coef,
+                      float* intercept,
+                      bool fit_intercept,
+                      int epochs,
+                      int loss,
+                      float alpha,
+                      float l1_ratio,
+                      bool shuffle,
+                      float tol,
+                      float* sample_weight = nullptr);
 
-int cdFit(raft::handle_t& handle,
-          double* input,
-          int n_rows,
-          int n_cols,
-          double* labels,
-          double* coef,
-          double* intercept,
-          bool fit_intercept,
-          int epochs,
-          int loss,
-          double alpha,
-          double l1_ratio,
-          bool shuffle,
-          double tol,
-          double* sample_weight = nullptr);
+CUML_EXPORT int cdFit(raft::handle_t& handle,
+                      double* input,
+                      int n_rows,
+                      int n_cols,
+                      double* labels,
+                      double* coef,
+                      double* intercept,
+                      bool fit_intercept,
+                      int epochs,
+                      int loss,
+                      double alpha,
+                      double l1_ratio,
+                      bool shuffle,
+                      double tol,
+                      double* sample_weight = nullptr);
 
-void cdPredict(raft::handle_t& handle,
-               const float* input,
-               int n_rows,
-               int n_cols,
-               const float* coef,
-               float intercept,
-               float* preds,
-               int loss);
+CUML_EXPORT void cdPredict(raft::handle_t& handle,
+                           const float* input,
+                           int n_rows,
+                           int n_cols,
+                           const float* coef,
+                           float intercept,
+                           float* preds,
+                           int loss);
 
-void cdPredict(raft::handle_t& handle,
-               const double* input,
-               int n_rows,
-               int n_cols,
-               const double* coef,
-               double intercept,
-               double* preds,
-               int loss);
+CUML_EXPORT void cdPredict(raft::handle_t& handle,
+                           const double* input,
+                           int n_rows,
+                           int n_cols,
+                           const double* coef,
+                           double intercept,
+                           double* preds,
+                           int loss);
 
 };  // namespace Solver
 };  // end namespace ML

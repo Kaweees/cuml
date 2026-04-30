@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 #pragma once
+#include <cuml/common/export.hpp>
 #include <cuml/fil/constants.hpp>
 #include <cuml/fil/decision_forest.hpp>
 #include <cuml/fil/detail/decision_forest_builder.hpp>

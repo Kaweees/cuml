@@ -495,6 +495,9 @@ if(BUILD_CUML_CPP_LIBRARY)
   # todo: separate solvers better
   if(all_algo OR solvers_algo)
     target_sources(cuml_objs PRIVATE src/solver/lars.cu src/solver/solver.cu)
+    # lars_impl.cuh defines larsFit with default args after lars.hpp declares it; nvcc warning 802-D
+    # (nonstandard redeclaration with default args) is benign here.
+    set_source_files_properties(src/solver/lars.cu PROPERTIES COMPILE_OPTIONS "-diag-suppress=802")
   endif()
 
   if(all_algo OR spectralclustering_algo)
@@ -568,6 +571,13 @@ if(BUILD_CUML_CPP_LIBRARY)
                CUDA_STANDARD_REQUIRED ON
                POSITION_INDEPENDENT_CODE ON
                INTERFACE_POSITION_INDEPENDENT_CODE ON
+  )
+
+  set_target_properties(
+    cuml_objs
+    PROPERTIES CXX_VISIBILITY_PRESET hidden
+               CUDA_VISIBILITY_PRESET hidden
+               VISIBILITY_INLINES_HIDDEN ON
   )
 
   target_compile_definitions(cuml_objs PUBLIC DISABLE_CUSPARSE_DEPRECATED)

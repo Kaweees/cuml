@@ -1,11 +1,13 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 #pragma once
 
 #include "../matrix/data.hpp"
 #include "../matrix/part_descriptor.hpp"
+
+#include <cuml/common/export.hpp>
 
 #include <raft/core/handle.hpp>
 
@@ -36,25 +38,25 @@ namespace opg {
  * \param[in]  stream     cuda stream on which work is launched.
  */
 
-void gemm(const raft::handle_t& h,
-          std::vector<Matrix::Data<float>*>& outZParts,
-          Matrix::PartDescriptor& outZDesc,
-          std::vector<Matrix::Data<float>*>& inXParts,
-          Matrix::PartDescriptor& inXDesc,
-          std::vector<Matrix::Data<float>*>& inYParts,
-          Matrix::PartDescriptor& inYDesc,
-          int myRank,
-          cudaStream_t stream);
+CUML_EXPORT void gemm(const raft::handle_t& h,
+                      std::vector<Matrix::Data<float>*>& outZParts,
+                      Matrix::PartDescriptor& outZDesc,
+                      std::vector<Matrix::Data<float>*>& inXParts,
+                      Matrix::PartDescriptor& inXDesc,
+                      std::vector<Matrix::Data<float>*>& inYParts,
+                      Matrix::PartDescriptor& inYDesc,
+                      int myRank,
+                      cudaStream_t stream);
 
-void gemm(const raft::handle_t& h,
-          std::vector<Matrix::Data<double>*>& outZParts,
-          Matrix::PartDescriptor& outZDesc,
-          std::vector<Matrix::Data<double>*>& inXParts,
-          Matrix::PartDescriptor& inXDesc,
-          std::vector<Matrix::Data<double>*>& inYParts,
-          Matrix::PartDescriptor& inYDesc,
-          int myRank,
-          cudaStream_t stream);
+CUML_EXPORT void gemm(const raft::handle_t& h,
+                      std::vector<Matrix::Data<double>*>& outZParts,
+                      Matrix::PartDescriptor& outZDesc,
+                      std::vector<Matrix::Data<double>*>& inXParts,
+                      Matrix::PartDescriptor& inXDesc,
+                      std::vector<Matrix::Data<double>*>& inYParts,
+                      Matrix::PartDescriptor& inYDesc,
+                      int myRank,
+                      cudaStream_t stream);
 
 }  // end namespace opg
 }  // end namespace LinAlg

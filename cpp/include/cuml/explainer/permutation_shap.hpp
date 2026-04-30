@@ -1,9 +1,11 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2020-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2020-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
+
+#include <cuml/common/export.hpp>
 
 namespace raft {
 class handle_t;
@@ -56,14 +58,14 @@ namespace Explainer {
  * @param[in] row_major        boolean to generate either row or column major data
  *
  */
-void permutation_shap_dataset(const raft::handle_t& handle,
-                              float* dataset,
-                              const float* background,
-                              int nrows_bg,
-                              int ncols,
-                              const float* row,
-                              int* idx,
-                              bool row_major);
+CUML_EXPORT void permutation_shap_dataset(const raft::handle_t& handle,
+                                          float* dataset,
+                                          const float* background,
+                                          int nrows_bg,
+                                          int ncols,
+                                          const float* row,
+                                          int* idx,
+                                          bool row_major);
 
 /**
  * Generates a dataset by tiling the `background` matrix into `out`, while
@@ -100,14 +102,14 @@ void permutation_shap_dataset(const raft::handle_t& handle,
  *
  */
 
-void shap_main_effect_dataset(const raft::handle_t& handle,
-                              float* dataset,
-                              const float* background,
-                              int nrows_bg,
-                              int ncols,
-                              const float* row,
-                              int* idx,
-                              bool row_major);
+CUML_EXPORT void shap_main_effect_dataset(const raft::handle_t& handle,
+                                          float* dataset,
+                                          const float* background,
+                                          int nrows_bg,
+                                          int ncols,
+                                          const float* row,
+                                          int* idx,
+                                          bool row_major);
 
 /**
  * Function that aggregates averages of the averatge of results of the model
@@ -124,11 +126,11 @@ void shap_main_effect_dataset(const raft::handle_t& handle,
  * @param[in] ncols            number of columns
  * @param[in] idx              permutation indexes [dim = ncols]
  */
-void update_perm_shap_values(const raft::handle_t& handle,
-                             float* shap_values,
-                             const float* y_hat,
-                             const int ncols,
-                             const int* idx);
+CUML_EXPORT void update_perm_shap_values(const raft::handle_t& handle,
+                                         float* shap_values,
+                                         const float* y_hat,
+                                         const int ncols,
+                                         const int* idx);
 
 }  // namespace Explainer
 }  // namespace ML

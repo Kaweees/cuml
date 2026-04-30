@@ -1,10 +1,11 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
 
+#include <cuml/common/export.hpp>
 #include <cuml/matrix/kernel_params.hpp>
 
 #include <cublas_v2.h>
@@ -38,15 +39,15 @@ struct SvmParameter;
  * @return n_iter: the number of solver iterations run during fitting
  */
 template <typename math_t>
-int svrFit(const raft::handle_t& handle,
-           math_t* X,
-           int n_rows,
-           int n_cols,
-           math_t* y,
-           const SvmParameter& param,
-           ML::matrix::KernelParams& kernel_params,
-           SvmModel<math_t>& model,
-           const math_t* sample_weight = nullptr);
+CUML_EXPORT int svrFit(const raft::handle_t& handle,
+                       math_t* X,
+                       int n_rows,
+                       int n_cols,
+                       math_t* y,
+                       const SvmParameter& param,
+                       ML::matrix::KernelParams& kernel_params,
+                       SvmModel<math_t>& model,
+                       const math_t* sample_weight = nullptr);
 
 /**
  * @brief Fit a support vector regressor to the training data.
@@ -71,18 +72,18 @@ int svrFit(const raft::handle_t& handle,
  * @return n_iter: the number of solver iterations run during fitting
  */
 template <typename math_t>
-int svrFitSparse(const raft::handle_t& handle,
-                 int* indptr,
-                 int* indices,
-                 math_t* data,
-                 int n_rows,
-                 int n_cols,
-                 int nnz,
-                 math_t* y,
-                 const SvmParameter& param,
-                 ML::matrix::KernelParams& kernel_params,
-                 SvmModel<math_t>& model,
-                 const math_t* sample_weight = nullptr);
+CUML_EXPORT int svrFitSparse(const raft::handle_t& handle,
+                             int* indptr,
+                             int* indices,
+                             math_t* data,
+                             int n_rows,
+                             int n_cols,
+                             int nnz,
+                             math_t* y,
+                             const SvmParameter& param,
+                             ML::matrix::KernelParams& kernel_params,
+                             SvmModel<math_t>& model,
+                             const math_t* sample_weight = nullptr);
 
 // For prediction we use svcPredict
 

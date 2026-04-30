@@ -1,10 +1,11 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2020-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2020-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
 
+#include <cuml/common/export.hpp>
 #include <cuml/linear_model/glm.hpp>
 #include <cuml/prims/opg/matrix/data.hpp>
 #include <cuml/prims/opg/matrix/part_descriptor.hpp>
@@ -30,33 +31,33 @@ namespace opg {
  * @param[in] verbose
  * @return n_iter: the number of solver iterations run
  */
-int fit(raft::handle_t& handle,
-        std::vector<MLCommon::Matrix::Data<float>*>& input_data,
-        MLCommon::Matrix::PartDescriptor& input_desc,
-        std::vector<MLCommon::Matrix::Data<float>*>& labels,
-        float* coef,
-        float* intercept,
-        bool fit_intercept,
-        int epochs,
-        float alpha,
-        float l1_ratio,
-        bool shuffle,
-        float tol,
-        bool verbose);
+CUML_EXPORT int fit(raft::handle_t& handle,
+                    std::vector<MLCommon::Matrix::Data<float>*>& input_data,
+                    MLCommon::Matrix::PartDescriptor& input_desc,
+                    std::vector<MLCommon::Matrix::Data<float>*>& labels,
+                    float* coef,
+                    float* intercept,
+                    bool fit_intercept,
+                    int epochs,
+                    float alpha,
+                    float l1_ratio,
+                    bool shuffle,
+                    float tol,
+                    bool verbose);
 
-int fit(raft::handle_t& handle,
-        std::vector<MLCommon::Matrix::Data<double>*>& input_data,
-        MLCommon::Matrix::PartDescriptor& input_desc,
-        std::vector<MLCommon::Matrix::Data<double>*>& labels,
-        double* coef,
-        double* intercept,
-        bool fit_intercept,
-        int epochs,
-        double alpha,
-        double l1_ratio,
-        bool shuffle,
-        double tol,
-        bool verbose);
+CUML_EXPORT int fit(raft::handle_t& handle,
+                    std::vector<MLCommon::Matrix::Data<double>*>& input_data,
+                    MLCommon::Matrix::PartDescriptor& input_desc,
+                    std::vector<MLCommon::Matrix::Data<double>*>& labels,
+                    double* coef,
+                    double* intercept,
+                    bool fit_intercept,
+                    int epochs,
+                    double alpha,
+                    double l1_ratio,
+                    bool shuffle,
+                    double tol,
+                    bool verbose);
 
 /**
  * @brief performs MNMG prediction for OLS
@@ -71,27 +72,27 @@ int fit(raft::handle_t& handle,
  * @param[out] preds: predictions
  * @param[in] verbose
  */
-void predict(raft::handle_t& handle,
-             MLCommon::Matrix::RankSizePair** rank_sizes,
-             size_t n_parts,
-             MLCommon::Matrix::Data<float>** input,
-             size_t n_rows,
-             size_t n_cols,
-             float* coef,
-             float intercept,
-             MLCommon::Matrix::Data<float>** preds,
-             bool verbose);
+CUML_EXPORT void predict(raft::handle_t& handle,
+                         MLCommon::Matrix::RankSizePair** rank_sizes,
+                         size_t n_parts,
+                         MLCommon::Matrix::Data<float>** input,
+                         size_t n_rows,
+                         size_t n_cols,
+                         float* coef,
+                         float intercept,
+                         MLCommon::Matrix::Data<float>** preds,
+                         bool verbose);
 
-void predict(raft::handle_t& handle,
-             MLCommon::Matrix::RankSizePair** rank_sizes,
-             size_t n_parts,
-             MLCommon::Matrix::Data<double>** input,
-             size_t n_rows,
-             size_t n_cols,
-             double* coef,
-             double intercept,
-             MLCommon::Matrix::Data<double>** preds,
-             bool verbose);
+CUML_EXPORT void predict(raft::handle_t& handle,
+                         MLCommon::Matrix::RankSizePair** rank_sizes,
+                         size_t n_parts,
+                         MLCommon::Matrix::Data<double>** input,
+                         size_t n_rows,
+                         size_t n_cols,
+                         double* coef,
+                         double intercept,
+                         MLCommon::Matrix::Data<double>** preds,
+                         bool verbose);
 
 };  // end namespace opg
 };  // namespace CD

@@ -1,11 +1,13 @@
+#pragma once
+
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#pragma once
-
 #include "data.hpp"
+
+#include <cuml/common/export.hpp>
 
 #include <stdint.h>
 
@@ -92,10 +94,10 @@ struct PartDescriptor {
 };
 
 /** Print matrix descriptor in human readable form */
-std::ostream& operator<<(std::ostream& os, const PartDescriptor& desc);
+CUML_EXPORT std::ostream& operator<<(std::ostream& os, const PartDescriptor& desc);
 
 /** compare 2 descriptor objects */
-bool operator==(const PartDescriptor& a, const PartDescriptor& b);
+CUML_EXPORT bool operator==(const PartDescriptor& a, const PartDescriptor& b);
 
 };  // end namespace Matrix
 };  // end namespace MLCommon

@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2018-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2018-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -141,6 +141,7 @@ void qnFit(const raft::handle_t& cuml_handle,
     cuml_handle, pams, X, X_col_major, y, N, D, C, w0, f, num_iters, sample_weight, svr_eps);
 }
 
+#pragma GCC visibility push(default)
 template void qnFit<float>(const raft::handle_t&,
                            const qn_params&,
                            float*,
@@ -167,6 +168,7 @@ template void qnFit<double>(const raft::handle_t&,
                             int*,
                             double*,
                             double);
+#pragma GCC visibility pop
 
 template <typename T, typename I>
 void qnFitSparse(const raft::handle_t& cuml_handle,
@@ -202,6 +204,7 @@ void qnFitSparse(const raft::handle_t& cuml_handle,
                          svr_eps);
 }
 
+#pragma GCC visibility push(default)
 template void qnFitSparse<float>(const raft::handle_t&,
                                  const qn_params&,
                                  float*,
@@ -232,6 +235,7 @@ template void qnFitSparse<double>(const raft::handle_t&,
                                   int*,
                                   double*,
                                   double);
+#pragma GCC visibility pop
 
 template <typename T, typename I>
 void qnDecisionFunction(const raft::handle_t& cuml_handle,
@@ -247,6 +251,7 @@ void qnDecisionFunction(const raft::handle_t& cuml_handle,
   detail::qnDecisionFunction<T>(cuml_handle, pams, X, X_col_major, N, D, C, params, scores);
 }
 
+#pragma GCC visibility push(default)
 template void qnDecisionFunction<float>(
   const raft::handle_t&, const qn_params&, float*, bool, int, int, int, float*, float*);
 template void qnDecisionFunction<double>(
@@ -282,6 +287,7 @@ template void qnDecisionFunctionSparse<double>(const raft::handle_t&,
                                                int,
                                                double*,
                                                double*);
+#pragma GCC visibility pop
 
 template <typename T, typename I>
 void qnPredict(const raft::handle_t& cuml_handle,
@@ -297,10 +303,12 @@ void qnPredict(const raft::handle_t& cuml_handle,
   detail::qnPredict<T>(cuml_handle, pams, X, X_col_major, N, D, C, params, scores);
 }
 
+#pragma GCC visibility push(default)
 template void qnPredict<float>(
   const raft::handle_t&, const qn_params&, float*, bool, int, int, int, float*, float*);
 template void qnPredict<double>(
   const raft::handle_t&, const qn_params&, double*, bool, int, int, int, double*, double*);
+#pragma GCC visibility pop
 
 template <typename T, typename I>
 void qnPredictSparse(const raft::handle_t& cuml_handle,
@@ -319,6 +327,7 @@ void qnPredictSparse(const raft::handle_t& cuml_handle,
     cuml_handle, pams, X_values, X_cols, X_row_ids, X_nnz, N, D, C, params, preds);
 }
 
+#pragma GCC visibility push(default)
 template void qnPredictSparse<float>(
   const raft::handle_t&, const qn_params&, float*, int*, int*, int, int, int, int, float*, float*);
 template void qnPredictSparse<double>(const raft::handle_t&,
@@ -332,6 +341,7 @@ template void qnPredictSparse<double>(const raft::handle_t&,
                                       int,
                                       double*,
                                       double*);
+#pragma GCC visibility pop
 
 }  // namespace GLM
 }  // namespace ML

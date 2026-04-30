@@ -1,10 +1,11 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2020-2021, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2020-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
 
+#include <cuml/common/export.hpp>
 #include <cuml/tsa/arima_common.h>
 
 namespace raft {
@@ -29,25 +30,25 @@ namespace Datasets {
  * @param[in]  seed            Seed for the random number generator
  * @{
  */
-void make_arima(const raft::handle_t& handle,
-                float* out,
-                int batch_size,
-                int n_obs,
-                ARIMAOrder order,
-                float scale           = 1.0f,
-                float noise_scale     = 0.2f,
-                float intercept_scale = 1.0f,
-                uint64_t seed         = 0ULL);
+CUML_EXPORT void make_arima(const raft::handle_t& handle,
+                            float* out,
+                            int batch_size,
+                            int n_obs,
+                            ARIMAOrder order,
+                            float scale           = 1.0f,
+                            float noise_scale     = 0.2f,
+                            float intercept_scale = 1.0f,
+                            uint64_t seed         = 0ULL);
 
-void make_arima(const raft::handle_t& handle,
-                double* out,
-                int batch_size,
-                int n_obs,
-                ARIMAOrder order,
-                double scale           = 1.0,
-                double noise_scale     = 0.2,
-                double intercept_scale = 1.0,
-                uint64_t seed          = 0ULL);
+CUML_EXPORT void make_arima(const raft::handle_t& handle,
+                            double* out,
+                            int batch_size,
+                            int n_obs,
+                            ARIMAOrder order,
+                            double scale           = 1.0,
+                            double noise_scale     = 0.2,
+                            double intercept_scale = 1.0,
+                            uint64_t seed          = 0ULL);
 /** @} */
 
 }  // namespace Datasets

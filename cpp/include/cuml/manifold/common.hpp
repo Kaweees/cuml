@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include <cuml/common/export.hpp>
+
 #include <raft/core/error.hpp>
 
 #include <stdint.h>

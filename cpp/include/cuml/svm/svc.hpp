@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -8,6 +8,7 @@
 #include "svm_model.h"
 #include "svm_parameter.h"
 
+#include <cuml/common/export.hpp>
 #include <cuml/common/logger.hpp>
 #include <cuml/matrix/kernel_params.hpp>
 
@@ -39,15 +40,15 @@ namespace SVM {
  * @return n_iter: the number of solver iterations run during fitting
  */
 template <typename math_t>
-int svcFit(const raft::handle_t& handle,
-           math_t* input,
-           int n_rows,
-           int n_cols,
-           math_t* labels,
-           const SvmParameter& param,
-           ML::matrix::KernelParams& kernel_params,
-           SvmModel<math_t>& model,
-           const math_t* sample_weight);
+CUML_EXPORT int svcFit(const raft::handle_t& handle,
+                       math_t* input,
+                       int n_rows,
+                       int n_cols,
+                       math_t* labels,
+                       const SvmParameter& param,
+                       ML::matrix::KernelParams& kernel_params,
+                       SvmModel<math_t>& model,
+                       const math_t* sample_weight);
 
 /**
  * @brief Fit a support vector classifier to the training data.
@@ -73,18 +74,18 @@ int svcFit(const raft::handle_t& handle,
  * @return n_iter: the number of solver iterations run during fitting
  */
 template <typename math_t>
-int svcFitSparse(const raft::handle_t& handle,
-                 int* indptr,
-                 int* indices,
-                 math_t* data,
-                 int n_rows,
-                 int n_cols,
-                 int nnz,
-                 math_t* labels,
-                 const SvmParameter& param,
-                 ML::matrix::KernelParams& kernel_params,
-                 SvmModel<math_t>& model,
-                 const math_t* sample_weight);
+CUML_EXPORT int svcFitSparse(const raft::handle_t& handle,
+                             int* indptr,
+                             int* indices,
+                             math_t* data,
+                             int n_rows,
+                             int n_cols,
+                             int nnz,
+                             math_t* labels,
+                             const SvmParameter& param,
+                             ML::matrix::KernelParams& kernel_params,
+                             SvmModel<math_t>& model,
+                             const math_t* sample_weight);
 
 /**
  * @brief Predict classes or decision function value for samples in input.
@@ -116,15 +117,15 @@ int svcFitSparse(const raft::handle_t& handle,
  *     return the decision function value (false)
  */
 template <typename math_t>
-void svcPredict(const raft::handle_t& handle,
-                math_t* input,
-                int n_rows,
-                int n_cols,
-                ML::matrix::KernelParams& kernel_params,
-                const SvmModel<math_t>& model,
-                math_t* preds,
-                math_t buffer_size,
-                bool predict_class);
+CUML_EXPORT void svcPredict(const raft::handle_t& handle,
+                            math_t* input,
+                            int n_rows,
+                            int n_cols,
+                            ML::matrix::KernelParams& kernel_params,
+                            const SvmModel<math_t>& model,
+                            math_t* preds,
+                            math_t buffer_size,
+                            bool predict_class);
 
 /**
  * @brief Predict classes or decision function value for samples in input.
@@ -158,18 +159,18 @@ void svcPredict(const raft::handle_t& handle,
  *     return the decision function value (false)
  */
 template <typename math_t>
-void svcPredictSparse(const raft::handle_t& handle,
-                      int* indptr,
-                      int* indices,
-                      math_t* data,
-                      int n_rows,
-                      int n_cols,
-                      int nnz,
-                      ML::matrix::KernelParams& kernel_params,
-                      const SvmModel<math_t>& model,
-                      math_t* preds,
-                      math_t buffer_size,
-                      bool predict_class);
+CUML_EXPORT void svcPredictSparse(const raft::handle_t& handle,
+                                  int* indptr,
+                                  int* indices,
+                                  math_t* data,
+                                  int n_rows,
+                                  int n_cols,
+                                  int nnz,
+                                  ML::matrix::KernelParams& kernel_params,
+                                  const SvmModel<math_t>& model,
+                                  math_t* preds,
+                                  math_t buffer_size,
+                                  bool predict_class);
 
 /**
  * Deallocate device buffers in the SvmModel struct.
@@ -178,7 +179,7 @@ void svcPredictSparse(const raft::handle_t& handle,
  * @param [inout] m SVM model parameters
  */
 template <typename math_t>
-void svmFreeBuffers(const raft::handle_t& handle, SvmModel<math_t>& m);
+CUML_EXPORT void svmFreeBuffers(const raft::handle_t& handle, SvmModel<math_t>& m);
 
 /**
  * @brief C-Support Vector Classification
@@ -200,7 +201,7 @@ void svmFreeBuffers(const raft::handle_t& handle, SvmModel<math_t>& m);
  *
  */
 template <typename math_t>
-class SVC {
+class CUML_EXPORT SVC {
  public:
   // Public members for easier access during testing from Python.
 

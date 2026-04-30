@@ -1,10 +1,10 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
-
+#include <cuml/common/export.hpp>
 #include <cuml/prims/opg/matrix/data.hpp>
 #include <cuml/prims/opg/matrix/part_descriptor.hpp>
 
@@ -35,18 +35,18 @@ namespace opg {
  * @param[in] batch_size the max number of rows to broadcast at a time
  * @param[in] verbose print extra logging info
  */
-void knn(raft::handle_t& handle,
-         std::vector<MLCommon::Matrix::Data<int64_t>*>* out_I,
-         std::vector<MLCommon::Matrix::floatData_t*>* out_D,
-         std::vector<MLCommon::Matrix::floatData_t*>& idx_data,
-         MLCommon::Matrix::PartDescriptor& idx_desc,
-         std::vector<MLCommon::Matrix::floatData_t*>& query_data,
-         MLCommon::Matrix::PartDescriptor& query_desc,
-         bool rowMajorIndex,
-         bool rowMajorQuery,
-         int k,
-         size_t batch_size,
-         bool verbose);
+CUML_EXPORT void knn(raft::handle_t& handle,
+                     std::vector<MLCommon::Matrix::Data<int64_t>*>* out_I,
+                     std::vector<MLCommon::Matrix::floatData_t*>* out_D,
+                     std::vector<MLCommon::Matrix::floatData_t*>& idx_data,
+                     MLCommon::Matrix::PartDescriptor& idx_desc,
+                     std::vector<MLCommon::Matrix::floatData_t*>& query_data,
+                     MLCommon::Matrix::PartDescriptor& query_desc,
+                     bool rowMajorIndex,
+                     bool rowMajorQuery,
+                     int k,
+                     size_t batch_size,
+                     bool verbose);
 
 /**
  * Performs a multi-node multi-GPU KNN classify.
@@ -72,22 +72,22 @@ void knn(raft::handle_t& handle,
  * @param[in] batch_size the max number of rows to broadcast at a time
  * @param[in] verbose print extra logging info
  */
-void knn_classify(raft::handle_t& handle,
-                  std::vector<MLCommon::Matrix::Data<int>*>* out,
-                  std::vector<std::vector<float*>>* probas,
-                  std::vector<MLCommon::Matrix::floatData_t*>& idx_data,
-                  MLCommon::Matrix::PartDescriptor& idx_desc,
-                  std::vector<MLCommon::Matrix::floatData_t*>& query_data,
-                  MLCommon::Matrix::PartDescriptor& query_desc,
-                  std::vector<std::vector<int*>>& y,
-                  std::vector<int*>& uniq_labels,
-                  std::vector<int>& n_unique,
-                  bool rowMajorIndex = false,
-                  bool rowMajorQuery = false,
-                  bool probas_only   = false,
-                  int k              = 10,
-                  size_t batch_size  = 1 << 15,
-                  bool verbose       = false);
+CUML_EXPORT void knn_classify(raft::handle_t& handle,
+                              std::vector<MLCommon::Matrix::Data<int>*>* out,
+                              std::vector<std::vector<float*>>* probas,
+                              std::vector<MLCommon::Matrix::floatData_t*>& idx_data,
+                              MLCommon::Matrix::PartDescriptor& idx_desc,
+                              std::vector<MLCommon::Matrix::floatData_t*>& query_data,
+                              MLCommon::Matrix::PartDescriptor& query_desc,
+                              std::vector<std::vector<int*>>& y,
+                              std::vector<int*>& uniq_labels,
+                              std::vector<int>& n_unique,
+                              bool rowMajorIndex = false,
+                              bool rowMajorQuery = false,
+                              bool probas_only   = false,
+                              int k              = 10,
+                              size_t batch_size  = 1 << 15,
+                              bool verbose       = false);
 
 /**
  * Performs a multi-node multi-GPU KNN regress.
@@ -110,19 +110,19 @@ void knn_classify(raft::handle_t& handle,
  * @param[in] batch_size the max number of rows to broadcast at a time
  * @param[in] verbose print extra logging info
  */
-void knn_regress(raft::handle_t& handle,
-                 std::vector<MLCommon::Matrix::Data<float>*>* out,
-                 std::vector<MLCommon::Matrix::floatData_t*>& idx_data,
-                 MLCommon::Matrix::PartDescriptor& idx_desc,
-                 std::vector<MLCommon::Matrix::floatData_t*>& query_data,
-                 MLCommon::Matrix::PartDescriptor& query_desc,
-                 std::vector<std::vector<float*>>& y,
-                 bool rowMajorIndex,
-                 bool rowMajorQuery,
-                 int k,
-                 int n_outputs,
-                 size_t batch_size,
-                 bool verbose);
+CUML_EXPORT void knn_regress(raft::handle_t& handle,
+                             std::vector<MLCommon::Matrix::Data<float>*>* out,
+                             std::vector<MLCommon::Matrix::floatData_t*>& idx_data,
+                             MLCommon::Matrix::PartDescriptor& idx_desc,
+                             std::vector<MLCommon::Matrix::floatData_t*>& query_data,
+                             MLCommon::Matrix::PartDescriptor& query_desc,
+                             std::vector<std::vector<float*>>& y,
+                             bool rowMajorIndex,
+                             bool rowMajorQuery,
+                             int k,
+                             int n_outputs,
+                             size_t batch_size,
+                             bool verbose);
 
 };  // END namespace opg
 };  // namespace KNN

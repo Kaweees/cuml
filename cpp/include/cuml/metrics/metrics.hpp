@@ -1,11 +1,12 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2021-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
 
 #include <cuml/common/distance_type.hpp>
+#include <cuml/common/export.hpp>
 
 #include <cstdint>
 
@@ -33,7 +34,7 @@ namespace Metrics {
  * @param n: Number of elements in y and y_hat
  * @return: The R-squared value.
  */
-float r2_score_py(const raft::handle_t& handle, float* y, float* y_hat, int n);
+CUML_EXPORT float r2_score_py(const raft::handle_t& handle, float* y, float* y_hat, int n);
 
 /**
  * Calculates the "Coefficient of Determination" (R-Squared) score
@@ -51,7 +52,7 @@ float r2_score_py(const raft::handle_t& handle, float* y, float* y_hat, int n);
  * @param n: Number of elements in y and y_hat
  * @return: The R-squared value.
  */
-double r2_score_py(const raft::handle_t& handle, double* y, double* y_hat, int n);
+CUML_EXPORT double r2_score_py(const raft::handle_t& handle, double* y, double* y_hat, int n);
 
 /**
  * Calculates the "rand index"
@@ -65,7 +66,7 @@ double r2_score_py(const raft::handle_t& handle, double* y, double* y_hat, int n
  * @return: The rand index value
  */
 
-double rand_index(const raft::handle_t& handle, double* y, double* y_hat, int n);
+CUML_EXPORT double rand_index(const raft::handle_t& handle, double* y, double* y_hat, int n);
 
 /**
  * Calculates the "Silhouette Score"
@@ -87,14 +88,14 @@ double rand_index(const raft::handle_t& handle, double* y, double* y_hat, int n)
  * @param silScores: Array that is optionally taken in as input if required to be populated with the
  * silhouette score for every sample (1 x nRows), else nullptr is passed
  */
-double silhouette_score(const raft::handle_t& handle,
-                        double* y,
-                        int nRows,
-                        int nCols,
-                        int* labels,
-                        int nLabels,
-                        double* silScores,
-                        ML::distance::DistanceType metric);
+CUML_EXPORT double silhouette_score(const raft::handle_t& handle,
+                                    double* y,
+                                    int nRows,
+                                    int nCols,
+                                    int* labels,
+                                    int nLabels,
+                                    double* silScores,
+                                    ML::distance::DistanceType metric);
 
 namespace Batched {
 /**
@@ -119,24 +120,24 @@ namespace Batched {
  * @param[out] scores: Array that is optionally taken in as input if required to be populated with
  * the silhouette score for every sample (1 x nRows), else nullptr is passed
  */
-float silhouette_score(const raft::handle_t& handle,
-                       float* X,
-                       int n_rows,
-                       int n_cols,
-                       int* y,
-                       int n_labels,
-                       float* scores,
-                       int chunk,
-                       ML::distance::DistanceType metric);
-double silhouette_score(const raft::handle_t& handle,
-                        double* X,
-                        int n_rows,
-                        int n_cols,
-                        int* y,
-                        int n_labels,
-                        double* scores,
-                        int chunk,
-                        ML::distance::DistanceType metric);
+CUML_EXPORT float silhouette_score(const raft::handle_t& handle,
+                                   float* X,
+                                   int n_rows,
+                                   int n_cols,
+                                   int* y,
+                                   int n_labels,
+                                   float* scores,
+                                   int chunk,
+                                   ML::distance::DistanceType metric);
+CUML_EXPORT double silhouette_score(const raft::handle_t& handle,
+                                    double* X,
+                                    int n_rows,
+                                    int n_cols,
+                                    int* y,
+                                    int n_labels,
+                                    double* scores,
+                                    int chunk,
+                                    ML::distance::DistanceType metric);
 
 }  // namespace Batched
 /**
@@ -151,14 +152,14 @@ double silhouette_score(const raft::handle_t& handle,
  * @return: The adjusted rand index value
  * @{
  */
-double adjusted_rand_index(const raft::handle_t& handle,
-                           const int64_t* y,
-                           const int64_t* y_hat,
-                           const int64_t n);
-double adjusted_rand_index(const raft::handle_t& handle,
-                           const int* y,
-                           const int* y_hat,
-                           const int n);
+CUML_EXPORT double adjusted_rand_index(const raft::handle_t& handle,
+                                       const int64_t* y,
+                                       const int64_t* y_hat,
+                                       const int64_t n);
+CUML_EXPORT double adjusted_rand_index(const raft::handle_t& handle,
+                                       const int* y,
+                                       const int* y_hat,
+                                       const int n);
 /** @} */
 
 /**
@@ -175,7 +176,10 @@ double adjusted_rand_index(const raft::handle_t& handle,
  * @param n: Number of elements in y and y_hat
  * @return: The KL Divergence value
  */
-double kl_divergence(const raft::handle_t& handle, const double* y, const double* y_hat, int n);
+CUML_EXPORT double kl_divergence(const raft::handle_t& handle,
+                                 const double* y,
+                                 const double* y_hat,
+                                 int n);
 
 /**
  * Calculates the "Kullback-Leibler Divergence"
@@ -191,7 +195,10 @@ double kl_divergence(const raft::handle_t& handle, const double* y, const double
  * @param n: Number of elements in y and y_hat
  * @return: The KL Divergence value
  */
-float kl_divergence(const raft::handle_t& handle, const float* y, const float* y_hat, int n);
+CUML_EXPORT float kl_divergence(const raft::handle_t& handle,
+                                const float* y,
+                                const float* y_hat,
+                                int n);
 
 /**
  * Calculates the "entropy" of a labelling
@@ -205,11 +212,11 @@ float kl_divergence(const raft::handle_t& handle, const float* y, const float* y
  * @param upper_class_range: the highest value in the range of classes
  * @return: The entropy value of the clustering
  */
-double entropy(const raft::handle_t& handle,
-               const int* y,
-               const int n,
-               const int lower_class_range,
-               const int upper_class_range);
+CUML_EXPORT double entropy(const raft::handle_t& handle,
+                           const int* y,
+                           const int n,
+                           const int lower_class_range,
+                           const int upper_class_range);
 
 /**
  * Calculates the "Mutual Information score" between two clusters
@@ -225,12 +232,12 @@ double entropy(const raft::handle_t& handle,
  * @param upper_class_range: the highest value in the range of classes
  * @return: The mutual information score
  */
-double mutual_info_score(const raft::handle_t& handle,
-                         const int* y,
-                         const int* y_hat,
-                         const int n,
-                         const int lower_class_range,
-                         const int upper_class_range);
+CUML_EXPORT double mutual_info_score(const raft::handle_t& handle,
+                                     const int* y,
+                                     const int* y_hat,
+                                     const int n,
+                                     const int lower_class_range,
+                                     const int upper_class_range);
 
 /**
  * Calculates the "homogeneity score" between two clusters
@@ -246,12 +253,12 @@ double mutual_info_score(const raft::handle_t& handle,
  * @param upper_class_range: the highest value in the range of classes
  * @return: The homogeneity score
  */
-double homogeneity_score(const raft::handle_t& handle,
-                         const int* y,
-                         const int* y_hat,
-                         const int n,
-                         const int lower_class_range,
-                         const int upper_class_range);
+CUML_EXPORT double homogeneity_score(const raft::handle_t& handle,
+                                     const int* y,
+                                     const int* y_hat,
+                                     const int n,
+                                     const int lower_class_range,
+                                     const int upper_class_range);
 
 /**
  * Calculates the "completeness score" between two clusters
@@ -267,12 +274,12 @@ double homogeneity_score(const raft::handle_t& handle,
  * @param upper_class_range: the highest value in the range of classes
  * @return: The completeness score
  */
-double completeness_score(const raft::handle_t& handle,
-                          const int* y,
-                          const int* y_hat,
-                          const int n,
-                          const int lower_class_range,
-                          const int upper_class_range);
+CUML_EXPORT double completeness_score(const raft::handle_t& handle,
+                                      const int* y,
+                                      const int* y_hat,
+                                      const int n,
+                                      const int lower_class_range,
+                                      const int upper_class_range);
 
 /**
  * Calculates the "v-measure" between two clusters
@@ -289,13 +296,13 @@ double completeness_score(const raft::handle_t& handle,
  * @param beta: Ratio of weight attributed to homogeneity vs completeness
  * @return: The v-measure
  */
-double v_measure(const raft::handle_t& handle,
-                 const int* y,
-                 const int* y_hat,
-                 const int n,
-                 const int lower_class_range,
-                 const int upper_class_range,
-                 double beta);
+CUML_EXPORT double v_measure(const raft::handle_t& handle,
+                             const int* y,
+                             const int* y_hat,
+                             const int n,
+                             const int lower_class_range,
+                             const int upper_class_range,
+                             double beta);
 
 /**
  * Calculates the "accuracy" between two input numpy arrays/ cudf series
@@ -309,10 +316,10 @@ double v_measure(const raft::handle_t& handle,
  * @param n: Number of elements in y and y_hat
  * @return: The accuracy
  */
-float accuracy_score_py(const raft::handle_t& handle,
-                        const int* predictions,
-                        const int* ref_predictions,
-                        int n);
+CUML_EXPORT float accuracy_score_py(const raft::handle_t& handle,
+                                    const int* predictions,
+                                    const int* ref_predictions,
+                                    int n);
 
 /**
  * @brief Calculates the ij pairwise distances between two input arrays of
@@ -331,16 +338,16 @@ float accuracy_score_py(const raft::handle_t& handle,
  *                   type array) or col (F type array) major
  * @param metric_arg the value of `p` for Minkowski (l-p) distances.
  */
-void pairwise_distance(const raft::handle_t& handle,
-                       const double* x,
-                       const double* y,
-                       double* dist,
-                       int m,
-                       int n,
-                       int k,
-                       ML::distance::DistanceType metric,
-                       bool isRowMajor   = true,
-                       double metric_arg = 2.0);
+CUML_EXPORT void pairwise_distance(const raft::handle_t& handle,
+                                   const double* x,
+                                   const double* y,
+                                   double* dist,
+                                   int m,
+                                   int n,
+                                   int k,
+                                   ML::distance::DistanceType metric,
+                                   bool isRowMajor   = true,
+                                   double metric_arg = 2.0);
 
 /**
  * @brief Calculates the ij pairwise distances between two input arrays of float type
@@ -358,47 +365,47 @@ void pairwise_distance(const raft::handle_t& handle,
  *                   type array) or col (F type array) major
  * @param metric_arg the value of `p` for Minkowski (l-p) distances.
  */
-void pairwise_distance(const raft::handle_t& handle,
-                       const float* x,
-                       const float* y,
-                       float* dist,
-                       int m,
-                       int n,
-                       int k,
-                       ML::distance::DistanceType metric,
-                       bool isRowMajor  = true,
-                       float metric_arg = 2.0f);
+CUML_EXPORT void pairwise_distance(const raft::handle_t& handle,
+                                   const float* x,
+                                   const float* y,
+                                   float* dist,
+                                   int m,
+                                   int n,
+                                   int k,
+                                   ML::distance::DistanceType metric,
+                                   bool isRowMajor  = true,
+                                   float metric_arg = 2.0f);
 
-void pairwiseDistance_sparse(const raft::handle_t& handle,
-                             double* x,
-                             double* y,
-                             double* dist,
-                             int x_nrows,
-                             int y_nrows,
-                             int n_cols,
-                             int x_nnz,
-                             int y_nnz,
-                             int* x_indptr,
-                             int* y_indptr,
-                             int* x_indices,
-                             int* y_indices,
-                             ML::distance::DistanceType metric,
-                             float metric_arg);
-void pairwiseDistance_sparse(const raft::handle_t& handle,
-                             float* x,
-                             float* y,
-                             float* dist,
-                             int x_nrows,
-                             int y_nrows,
-                             int n_cols,
-                             int x_nnz,
-                             int y_nnz,
-                             int* x_indptr,
-                             int* y_indptr,
-                             int* x_indices,
-                             int* y_indices,
-                             ML::distance::DistanceType metric,
-                             float metric_arg);
+CUML_EXPORT void pairwiseDistance_sparse(const raft::handle_t& handle,
+                                         double* x,
+                                         double* y,
+                                         double* dist,
+                                         int x_nrows,
+                                         int y_nrows,
+                                         int n_cols,
+                                         int x_nnz,
+                                         int y_nnz,
+                                         int* x_indptr,
+                                         int* y_indptr,
+                                         int* x_indices,
+                                         int* y_indices,
+                                         ML::distance::DistanceType metric,
+                                         float metric_arg);
+CUML_EXPORT void pairwiseDistance_sparse(const raft::handle_t& handle,
+                                         float* x,
+                                         float* y,
+                                         float* dist,
+                                         int x_nrows,
+                                         int y_nrows,
+                                         int n_cols,
+                                         int x_nnz,
+                                         int y_nnz,
+                                         int* x_indptr,
+                                         int* y_indptr,
+                                         int* x_indices,
+                                         int* y_indices,
+                                         ML::distance::DistanceType metric,
+                                         float metric_arg);
 
 /**
  * @brief Compute the trustworthiness score
@@ -415,14 +422,14 @@ void pairwiseDistance_sparse(const raft::handle_t& handle,
  * @return Trustworthiness score
  */
 template <typename math_t, ML::distance::DistanceType distance_type>
-double trustworthiness_score(const raft::handle_t& h,
-                             const math_t* X,
-                             math_t* X_embedded,
-                             int n,
-                             int m,
-                             int d,
-                             int n_neighbors,
-                             int batchSize = 512);
+CUML_EXPORT double trustworthiness_score(const raft::handle_t& h,
+                                         const math_t* X,
+                                         math_t* X_embedded,
+                                         int n,
+                                         int m,
+                                         int d,
+                                         int n_neighbors,
+                                         int batchSize = 512);
 
 }  // namespace Metrics
 }  // namespace ML

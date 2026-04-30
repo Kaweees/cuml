@@ -7,6 +7,7 @@
 
 #include <cuml/common/callback.hpp>
 #include <cuml/common/distance_type.hpp>
+#include <cuml/common/export.hpp>
 #include <cuml/common/logger.hpp>
 
 namespace ML {

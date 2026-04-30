@@ -1,11 +1,12 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
 
 #include <cuml/cluster/kmeans_params.hpp>
+#include <cuml/common/export.hpp>
 
 namespace raft {
 class handle_t;
@@ -36,45 +37,45 @@ namespace kmeans {
  closest cluster center.
  * @param[out]    n_iter        Number of iterations run.
  */
-void fit(const raft::handle_t& handle,
-         const KMeansParams& params,
-         const float* X,
-         int n_samples,
-         int n_features,
-         const float* sample_weight,
-         float* centroids,
-         float& inertia,
-         int& n_iter);
+CUML_EXPORT void fit(const raft::handle_t& handle,
+                     const KMeansParams& params,
+                     const float* X,
+                     int n_samples,
+                     int n_features,
+                     const float* sample_weight,
+                     float* centroids,
+                     float& inertia,
+                     int& n_iter);
 
-void fit(const raft::handle_t& handle,
-         const KMeansParams& params,
-         const double* X,
-         int n_samples,
-         int n_features,
-         const double* sample_weight,
-         double* centroids,
-         double& inertia,
-         int& n_iter);
+CUML_EXPORT void fit(const raft::handle_t& handle,
+                     const KMeansParams& params,
+                     const double* X,
+                     int n_samples,
+                     int n_features,
+                     const double* sample_weight,
+                     double* centroids,
+                     double& inertia,
+                     int& n_iter);
 
-void fit(const raft::handle_t& handle,
-         const KMeansParams& params,
-         const float* X,
-         int64_t n_samples,
-         int64_t n_features,
-         const float* sample_weight,
-         float* centroids,
-         float& inertia,
-         int64_t& n_iter);
+CUML_EXPORT void fit(const raft::handle_t& handle,
+                     const KMeansParams& params,
+                     const float* X,
+                     int64_t n_samples,
+                     int64_t n_features,
+                     const float* sample_weight,
+                     float* centroids,
+                     float& inertia,
+                     int64_t& n_iter);
 
-void fit(const raft::handle_t& handle,
-         const KMeansParams& params,
-         const double* X,
-         int64_t n_samples,
-         int64_t n_features,
-         const double* sample_weight,
-         double* centroids,
-         double& inertia,
-         int64_t& n_iter);
+CUML_EXPORT void fit(const raft::handle_t& handle,
+                     const KMeansParams& params,
+                     const double* X,
+                     int64_t n_samples,
+                     int64_t n_features,
+                     const double* sample_weight,
+                     double* centroids,
+                     double& inertia,
+                     int64_t& n_iter);
 
 /**
  * @brief Predict the closest cluster each sample in X belongs to.
@@ -98,48 +99,48 @@ void fit(const raft::handle_t& handle,
  * their closest cluster center.
  */
 
-void predict(const raft::handle_t& handle,
-             const KMeansParams& params,
-             const float* centroids,
-             const float* X,
-             int n_samples,
-             int n_features,
-             const float* sample_weight,
-             bool normalize_weights,
-             int* labels,
-             float& inertia);
+CUML_EXPORT void predict(const raft::handle_t& handle,
+                         const KMeansParams& params,
+                         const float* centroids,
+                         const float* X,
+                         int n_samples,
+                         int n_features,
+                         const float* sample_weight,
+                         bool normalize_weights,
+                         int* labels,
+                         float& inertia);
 
-void predict(const raft::handle_t& handle,
-             const KMeansParams& params,
-             const double* centroids,
-             const double* X,
-             int n_samples,
-             int n_features,
-             const double* sample_weight,
-             bool normalize_weights,
-             int* labels,
-             double& inertia);
-void predict(const raft::handle_t& handle,
-             const KMeansParams& params,
-             const float* centroids,
-             const float* X,
-             int64_t n_samples,
-             int64_t n_features,
-             const float* sample_weight,
-             bool normalize_weights,
-             int64_t* labels,
-             float& inertia);
+CUML_EXPORT void predict(const raft::handle_t& handle,
+                         const KMeansParams& params,
+                         const double* centroids,
+                         const double* X,
+                         int n_samples,
+                         int n_features,
+                         const double* sample_weight,
+                         bool normalize_weights,
+                         int* labels,
+                         double& inertia);
+CUML_EXPORT void predict(const raft::handle_t& handle,
+                         const KMeansParams& params,
+                         const float* centroids,
+                         const float* X,
+                         int64_t n_samples,
+                         int64_t n_features,
+                         const float* sample_weight,
+                         bool normalize_weights,
+                         int64_t* labels,
+                         float& inertia);
 
-void predict(const raft::handle_t& handle,
-             const KMeansParams& params,
-             const double* centroids,
-             const double* X,
-             int64_t n_samples,
-             int64_t n_features,
-             const double* sample_weight,
-             bool normalize_weights,
-             int64_t* labels,
-             double& inertia);
+CUML_EXPORT void predict(const raft::handle_t& handle,
+                         const KMeansParams& params,
+                         const double* centroids,
+                         const double* X,
+                         int64_t n_samples,
+                         int64_t n_features,
+                         const double* sample_weight,
+                         bool normalize_weights,
+                         int64_t* labels,
+                         double& inertia);
 /**
  * @brief Transform X to a cluster-distance space.
  *
@@ -157,35 +158,35 @@ void predict(const raft::handle_t& handle,
  * 'centroids').
  * @param[out]    X_new         X transformed in the new space..
  */
-void transform(const raft::handle_t& handle,
-               const KMeansParams& params,
-               const float* centroids,
-               const float* X,
-               int n_samples,
-               int n_features,
-               float* X_new);
+CUML_EXPORT void transform(const raft::handle_t& handle,
+                           const KMeansParams& params,
+                           const float* centroids,
+                           const float* X,
+                           int n_samples,
+                           int n_features,
+                           float* X_new);
 
-void transform(const raft::handle_t& handle,
-               const KMeansParams& params,
-               const double* centroids,
-               const double* X,
-               int n_samples,
-               int n_features,
-               double* X_new);
-void transform(const raft::handle_t& handle,
-               const KMeansParams& params,
-               const float* centroids,
-               const float* X,
-               int64_t n_samples,
-               int64_t n_features,
-               float* X_new);
+CUML_EXPORT void transform(const raft::handle_t& handle,
+                           const KMeansParams& params,
+                           const double* centroids,
+                           const double* X,
+                           int n_samples,
+                           int n_features,
+                           double* X_new);
+CUML_EXPORT void transform(const raft::handle_t& handle,
+                           const KMeansParams& params,
+                           const float* centroids,
+                           const float* X,
+                           int64_t n_samples,
+                           int64_t n_features,
+                           float* X_new);
 
-void transform(const raft::handle_t& handle,
-               const KMeansParams& params,
-               const double* centroids,
-               const double* X,
-               int64_t n_samples,
-               int64_t n_features,
-               double* X_new);
+CUML_EXPORT void transform(const raft::handle_t& handle,
+                           const KMeansParams& params,
+                           const double* centroids,
+                           const double* X,
+                           int64_t n_samples,
+                           int64_t n_features,
+                           double* X_new);
 };  // end namespace kmeans
 };  // end namespace ML

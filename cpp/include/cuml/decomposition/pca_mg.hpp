@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2020-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2020-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -7,6 +7,7 @@
 
 #include "pca.hpp"
 
+#include <cuml/common/export.hpp>
 #include <cuml/prims/opg/matrix/data.hpp>
 #include <cuml/prims/opg/matrix/part_descriptor.hpp>
 
@@ -30,31 +31,31 @@ namespace opg {
  * @param[in] flip_signs_based_on_U: Whether to use U-based decision for sign flipping (for sklearn
  * < 1.5)
  */
-void fit(raft::handle_t& handle,
-         std::vector<MLCommon::Matrix::Data<float>*>& input_data,
-         MLCommon::Matrix::PartDescriptor& input_desc,
-         float* components,
-         float* explained_var,
-         float* explained_var_ratio,
-         float* singular_vals,
-         float* mu,
-         float* noise_vars,
-         paramsPCAMG prms,
-         bool verbose               = false,
-         bool flip_signs_based_on_U = false);
+CUML_EXPORT void fit(raft::handle_t& handle,
+                     std::vector<MLCommon::Matrix::Data<float>*>& input_data,
+                     MLCommon::Matrix::PartDescriptor& input_desc,
+                     float* components,
+                     float* explained_var,
+                     float* explained_var_ratio,
+                     float* singular_vals,
+                     float* mu,
+                     float* noise_vars,
+                     paramsPCAMG prms,
+                     bool verbose               = false,
+                     bool flip_signs_based_on_U = false);
 
-void fit(raft::handle_t& handle,
-         std::vector<MLCommon::Matrix::Data<double>*>& input_data,
-         MLCommon::Matrix::PartDescriptor& input_desc,
-         double* components,
-         double* explained_var,
-         double* explained_var_ratio,
-         double* singular_vals,
-         double* mu,
-         double* noise_vars,
-         paramsPCAMG prms,
-         bool verbose               = false,
-         bool flip_signs_based_on_U = false);
+CUML_EXPORT void fit(raft::handle_t& handle,
+                     std::vector<MLCommon::Matrix::Data<double>*>& input_data,
+                     MLCommon::Matrix::PartDescriptor& input_desc,
+                     double* components,
+                     double* explained_var,
+                     double* explained_var_ratio,
+                     double* singular_vals,
+                     double* mu,
+                     double* noise_vars,
+                     paramsPCAMG prms,
+                     bool verbose               = false,
+                     bool flip_signs_based_on_U = false);
 
 /**
  * @brief performs MNMG fit and transform operation for the pca
@@ -74,35 +75,35 @@ void fit(raft::handle_t& handle,
  * @param[in] flip_signs_based_on_U: Whether to use U-based decision for sign flipping (for sklearn
  * < 1.5)
  */
-void fit_transform(raft::handle_t& handle,
-                   MLCommon::Matrix::RankSizePair** rank_sizes,
-                   std::uint32_t n_parts,
-                   MLCommon::Matrix::floatData_t** input,
-                   MLCommon::Matrix::floatData_t** trans_input,
-                   float* components,
-                   float* explained_var,
-                   float* explained_var_ratio,
-                   float* singular_vals,
-                   float* mu,
-                   float* noise_vars,
-                   paramsPCAMG prms,
-                   bool verbose,
-                   bool flip_signs_based_on_U);
+CUML_EXPORT void fit_transform(raft::handle_t& handle,
+                               MLCommon::Matrix::RankSizePair** rank_sizes,
+                               std::uint32_t n_parts,
+                               MLCommon::Matrix::floatData_t** input,
+                               MLCommon::Matrix::floatData_t** trans_input,
+                               float* components,
+                               float* explained_var,
+                               float* explained_var_ratio,
+                               float* singular_vals,
+                               float* mu,
+                               float* noise_vars,
+                               paramsPCAMG prms,
+                               bool verbose,
+                               bool flip_signs_based_on_U);
 
-void fit_transform(raft::handle_t& handle,
-                   MLCommon::Matrix::RankSizePair** rank_sizes,
-                   std::uint32_t n_parts,
-                   MLCommon::Matrix::doubleData_t** input,
-                   MLCommon::Matrix::doubleData_t** trans_input,
-                   double* components,
-                   double* explained_var,
-                   double* explained_var_ratio,
-                   double* singular_vals,
-                   double* mu,
-                   double* noise_vars,
-                   paramsPCAMG prms,
-                   bool verbose,
-                   bool flip_signs_based_on_U);
+CUML_EXPORT void fit_transform(raft::handle_t& handle,
+                               MLCommon::Matrix::RankSizePair** rank_sizes,
+                               std::uint32_t n_parts,
+                               MLCommon::Matrix::doubleData_t** input,
+                               MLCommon::Matrix::doubleData_t** trans_input,
+                               double* components,
+                               double* explained_var,
+                               double* explained_var_ratio,
+                               double* singular_vals,
+                               double* mu,
+                               double* noise_vars,
+                               paramsPCAMG prms,
+                               bool verbose,
+                               bool flip_signs_based_on_U);
 
 /**
  * @brief performs MNMG transform operation for the pca
@@ -117,27 +118,27 @@ void fit_transform(raft::handle_t& handle,
  * @param[in] prms: data structure that includes all the parameters from input size to algorithm
  * @param[in] verbose
  */
-void transform(raft::handle_t& handle,
-               MLCommon::Matrix::RankSizePair** rank_sizes,
-               std::uint32_t n_parts,
-               MLCommon::Matrix::Data<float>** input,
-               float* components,
-               MLCommon::Matrix::Data<float>** trans_input,
-               float* singular_vals,
-               float* mu,
-               paramsPCAMG prms,
-               bool verbose);
+CUML_EXPORT void transform(raft::handle_t& handle,
+                           MLCommon::Matrix::RankSizePair** rank_sizes,
+                           std::uint32_t n_parts,
+                           MLCommon::Matrix::Data<float>** input,
+                           float* components,
+                           MLCommon::Matrix::Data<float>** trans_input,
+                           float* singular_vals,
+                           float* mu,
+                           paramsPCAMG prms,
+                           bool verbose);
 
-void transform(raft::handle_t& handle,
-               MLCommon::Matrix::RankSizePair** rank_sizes,
-               std::uint32_t n_parts,
-               MLCommon::Matrix::Data<double>** input,
-               double* components,
-               MLCommon::Matrix::Data<double>** trans_input,
-               double* singular_vals,
-               double* mu,
-               paramsPCAMG prms,
-               bool verbose);
+CUML_EXPORT void transform(raft::handle_t& handle,
+                           MLCommon::Matrix::RankSizePair** rank_sizes,
+                           std::uint32_t n_parts,
+                           MLCommon::Matrix::Data<double>** input,
+                           double* components,
+                           MLCommon::Matrix::Data<double>** trans_input,
+                           double* singular_vals,
+                           double* mu,
+                           paramsPCAMG prms,
+                           bool verbose);
 
 /**
  * @brief performs MNMG inverse transform operation for the pca
@@ -152,27 +153,27 @@ void transform(raft::handle_t& handle,
  * @param[in] prms: data structure that includes all the parameters from input size to algorithm
  * @param[in] verbose
  */
-void inverse_transform(raft::handle_t& handle,
-                       MLCommon::Matrix::RankSizePair** rank_sizes,
-                       std::uint32_t n_parts,
-                       MLCommon::Matrix::Data<float>** trans_input,
-                       float* components,
-                       MLCommon::Matrix::Data<float>** input,
-                       float* singular_vals,
-                       float* mu,
-                       paramsPCAMG prms,
-                       bool verbose);
+CUML_EXPORT void inverse_transform(raft::handle_t& handle,
+                                   MLCommon::Matrix::RankSizePair** rank_sizes,
+                                   std::uint32_t n_parts,
+                                   MLCommon::Matrix::Data<float>** trans_input,
+                                   float* components,
+                                   MLCommon::Matrix::Data<float>** input,
+                                   float* singular_vals,
+                                   float* mu,
+                                   paramsPCAMG prms,
+                                   bool verbose);
 
-void inverse_transform(raft::handle_t& handle,
-                       MLCommon::Matrix::RankSizePair** rank_sizes,
-                       std::uint32_t n_parts,
-                       MLCommon::Matrix::Data<double>** trans_input,
-                       double* components,
-                       MLCommon::Matrix::Data<double>** input,
-                       double* singular_vals,
-                       double* mu,
-                       paramsPCAMG prms,
-                       bool verbose);
+CUML_EXPORT void inverse_transform(raft::handle_t& handle,
+                                   MLCommon::Matrix::RankSizePair** rank_sizes,
+                                   std::uint32_t n_parts,
+                                   MLCommon::Matrix::Data<double>** trans_input,
+                                   double* components,
+                                   MLCommon::Matrix::Data<double>** input,
+                                   double* singular_vals,
+                                   double* mu,
+                                   paramsPCAMG prms,
+                                   bool verbose);
 
 };  // end namespace opg
 };  // end namespace PCA

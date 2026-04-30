@@ -1,11 +1,13 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 #pragma once
 
 #include "../matrix/data.hpp"
 #include "../matrix/part_descriptor.hpp"
+
+#include <cuml/common/export.hpp>
 
 #include <raft/core/comms.hpp>
 #include <raft/core/device_mdspan.hpp>
@@ -27,24 +29,24 @@ namespace opg {
  * @param[in] broadcastResult if false, only root process will have the result,
  *            else all ranks
  */
-void meanSquaredError(double* out,
-                      const Matrix::Data<double>& in1,
-                      const Matrix::PartDescriptor& in1Desc,
-                      const Matrix::Data<double>& in2,
-                      const Matrix::PartDescriptor& in2Desc,
-                      const raft::comms::comms_t& comm,
-                      cudaStream_t stream,
-                      int root             = 0,
-                      bool broadcastResult = true);
-void meanSquaredError(float* out,
-                      const Matrix::Data<float>& in1,
-                      const Matrix::PartDescriptor& in1Desc,
-                      const Matrix::Data<float>& in2,
-                      const Matrix::PartDescriptor& in2Desc,
-                      const raft::comms::comms_t& comm,
-                      cudaStream_t stream,
-                      int root             = 0,
-                      bool broadcastResult = true);
+CUML_EXPORT void meanSquaredError(double* out,
+                                  const Matrix::Data<double>& in1,
+                                  const Matrix::PartDescriptor& in1Desc,
+                                  const Matrix::Data<double>& in2,
+                                  const Matrix::PartDescriptor& in2Desc,
+                                  const raft::comms::comms_t& comm,
+                                  cudaStream_t stream,
+                                  int root             = 0,
+                                  bool broadcastResult = true);
+CUML_EXPORT void meanSquaredError(float* out,
+                                  const Matrix::Data<float>& in1,
+                                  const Matrix::PartDescriptor& in1Desc,
+                                  const Matrix::Data<float>& in2,
+                                  const Matrix::PartDescriptor& in2Desc,
+                                  const raft::comms::comms_t& comm,
+                                  cudaStream_t stream,
+                                  int root             = 0,
+                                  bool broadcastResult = true);
 
 }  // end namespace opg
 }  // end namespace LinAlg

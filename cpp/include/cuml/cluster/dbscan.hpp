@@ -1,11 +1,12 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2018-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2018-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
 
 #include <cuml/common/distance_type.hpp>
+#include <cuml/common/export.hpp>
 #include <cuml/common/logger.hpp>
 
 #include <cstddef>
@@ -49,63 +50,63 @@ enum EpsNnMethod { BRUTE_FORCE, RBC };
  * @{
  */
 
-void fit(const raft::handle_t& handle,
-         float* input,
-         int n_rows,
-         int n_cols,
-         float eps,
-         int min_pts,
-         ML::distance::DistanceType metric,
-         int* labels,
-         int* core_sample_indices            = nullptr,
-         float* sample_weight                = nullptr,
-         size_t max_bytes_per_batch          = 0,
-         EpsNnMethod eps_nn_method           = BRUTE_FORCE,
-         rapids_logger::level_enum verbosity = rapids_logger::level_enum::info,
-         bool opg                            = false);
-void fit(const raft::handle_t& handle,
-         double* input,
-         int n_rows,
-         int n_cols,
-         double eps,
-         int min_pts,
-         ML::distance::DistanceType metric,
-         int* labels,
-         int* core_sample_indices            = nullptr,
-         double* sample_weight               = nullptr,
-         size_t max_bytes_per_batch          = 0,
-         EpsNnMethod eps_nn_method           = BRUTE_FORCE,
-         rapids_logger::level_enum verbosity = rapids_logger::level_enum::info,
-         bool opg                            = false);
+CUML_EXPORT void fit(const raft::handle_t& handle,
+                     float* input,
+                     int n_rows,
+                     int n_cols,
+                     float eps,
+                     int min_pts,
+                     ML::distance::DistanceType metric,
+                     int* labels,
+                     int* core_sample_indices            = nullptr,
+                     float* sample_weight                = nullptr,
+                     size_t max_bytes_per_batch          = 0,
+                     EpsNnMethod eps_nn_method           = BRUTE_FORCE,
+                     rapids_logger::level_enum verbosity = rapids_logger::level_enum::info,
+                     bool opg                            = false);
+CUML_EXPORT void fit(const raft::handle_t& handle,
+                     double* input,
+                     int n_rows,
+                     int n_cols,
+                     double eps,
+                     int min_pts,
+                     ML::distance::DistanceType metric,
+                     int* labels,
+                     int* core_sample_indices            = nullptr,
+                     double* sample_weight               = nullptr,
+                     size_t max_bytes_per_batch          = 0,
+                     EpsNnMethod eps_nn_method           = BRUTE_FORCE,
+                     rapids_logger::level_enum verbosity = rapids_logger::level_enum::info,
+                     bool opg                            = false);
 
-void fit(const raft::handle_t& handle,
-         float* input,
-         int64_t n_rows,
-         int64_t n_cols,
-         float eps,
-         int min_pts,
-         ML::distance::DistanceType metric,
-         int64_t* labels,
-         int64_t* core_sample_indices        = nullptr,
-         float* sample_weight                = nullptr,
-         size_t max_bytes_per_batch          = 0,
-         EpsNnMethod eps_nn_method           = BRUTE_FORCE,
-         rapids_logger::level_enum verbosity = rapids_logger::level_enum::info,
-         bool opg                            = false);
-void fit(const raft::handle_t& handle,
-         double* input,
-         int64_t n_rows,
-         int64_t n_cols,
-         double eps,
-         int min_pts,
-         ML::distance::DistanceType metric,
-         int64_t* labels,
-         int64_t* core_sample_indices        = nullptr,
-         double* sample_weight               = nullptr,
-         size_t max_bytes_per_batch          = 0,
-         EpsNnMethod eps_nn_method           = BRUTE_FORCE,
-         rapids_logger::level_enum verbosity = rapids_logger::level_enum::info,
-         bool opg                            = false);
+CUML_EXPORT void fit(const raft::handle_t& handle,
+                     float* input,
+                     int64_t n_rows,
+                     int64_t n_cols,
+                     float eps,
+                     int min_pts,
+                     ML::distance::DistanceType metric,
+                     int64_t* labels,
+                     int64_t* core_sample_indices        = nullptr,
+                     float* sample_weight                = nullptr,
+                     size_t max_bytes_per_batch          = 0,
+                     EpsNnMethod eps_nn_method           = BRUTE_FORCE,
+                     rapids_logger::level_enum verbosity = rapids_logger::level_enum::info,
+                     bool opg                            = false);
+CUML_EXPORT void fit(const raft::handle_t& handle,
+                     double* input,
+                     int64_t n_rows,
+                     int64_t n_cols,
+                     double eps,
+                     int min_pts,
+                     ML::distance::DistanceType metric,
+                     int64_t* labels,
+                     int64_t* core_sample_indices        = nullptr,
+                     double* sample_weight               = nullptr,
+                     size_t max_bytes_per_batch          = 0,
+                     EpsNnMethod eps_nn_method           = BRUTE_FORCE,
+                     rapids_logger::level_enum verbosity = rapids_logger::level_enum::info,
+                     bool opg                            = false);
 
 /** @} */
 

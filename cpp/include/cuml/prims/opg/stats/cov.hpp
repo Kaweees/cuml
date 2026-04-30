@@ -1,11 +1,13 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 #pragma once
 
 #include "../matrix/data.hpp"
 #include "../matrix/part_descriptor.hpp"
+
+#include <cuml/common/export.hpp>
 
 #include <raft/core/comms.hpp>
 #include <raft/core/handle.hpp>
@@ -25,23 +27,23 @@ namespace opg {
  * @param[in] streams cuda streams
  * @param[in] n_streams number of streams
  */
-void cov(const raft::handle_t& handle,
-         Matrix::Data<float>& covar,
-         const std::vector<Matrix::Data<float>*>& data,
-         const Matrix::PartDescriptor& dataDesc,
-         Matrix::Data<float>& mu,
-         bool sample,
-         cudaStream_t* streams,
-         int n_streams);
+CUML_EXPORT void cov(const raft::handle_t& handle,
+                     Matrix::Data<float>& covar,
+                     const std::vector<Matrix::Data<float>*>& data,
+                     const Matrix::PartDescriptor& dataDesc,
+                     Matrix::Data<float>& mu,
+                     bool sample,
+                     cudaStream_t* streams,
+                     int n_streams);
 
-void cov(const raft::handle_t& handle,
-         Matrix::Data<double>& covar,
-         const std::vector<Matrix::Data<double>*>& data,
-         const Matrix::PartDescriptor& dataDesc,
-         Matrix::Data<double>& mu,
-         bool sample,
-         cudaStream_t* streams,
-         int n_streams);
+CUML_EXPORT void cov(const raft::handle_t& handle,
+                     Matrix::Data<double>& covar,
+                     const std::vector<Matrix::Data<double>*>& data,
+                     const Matrix::PartDescriptor& dataDesc,
+                     Matrix::Data<double>& mu,
+                     bool sample,
+                     cudaStream_t* streams,
+                     int n_streams);
 
 }  // end namespace opg
 }  // end namespace Stats

@@ -1,11 +1,13 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2021, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2021-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
 
 #include "node.h"
+
+#include <cuml/common/export.hpp>
 
 #include <cstdint>
 #include <map>
@@ -80,7 +82,7 @@ enum class mutation_t : uint32_t {
  * @note Unless otherwise mentioned, all the parameters below are applicable to
  *       all of classification, regression and transformation.
  */
-struct param {
+struct CUML_EXPORT param {
   /** number of programs in each generation */
   int population_size = 1000;
 

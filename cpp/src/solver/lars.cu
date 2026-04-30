@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2020-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2020-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -14,6 +14,7 @@ namespace Solver {
 namespace Lars {
 
 // Explicit instantiation
+#pragma GCC visibility push(default)
 template void larsFit<float, int>(const raft::handle_t& handle,
                                   float* X,
                                   int n_rows,
@@ -69,6 +70,7 @@ template void larsPredict(const raft::handle_t& handle,
                           int* active_idx,
                           double intercept,
                           double* preds);
+#pragma GCC visibility pop
 };  // namespace Lars
 };  // namespace Solver
 };  // end namespace ML

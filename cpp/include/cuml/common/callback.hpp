@@ -1,21 +1,23 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2021, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
+
+#include <cuml/common/export.hpp>
 
 #include <type_traits>
 
 namespace ML {
 namespace Internals {
 
-class Callback {
+class CUML_EXPORT Callback {
  public:
   virtual ~Callback() {}
 };
 
-class GraphBasedDimRedCallback : public Callback {
+class CUML_EXPORT GraphBasedDimRedCallback : public Callback {
  public:
   template <typename T>
   void setup(int n, int n_components)

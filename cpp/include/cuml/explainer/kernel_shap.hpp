@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include <cuml/common/export.hpp>
+
 #include <cstdint>
 
 namespace raft {
@@ -65,18 +67,18 @@ namespace Explainer {
  *  [0, 101, 102, 3],
  *  [5, 101, 102, 8]]
  */
-void kernel_dataset(const raft::handle_t& handle,
-                    float* X,
-                    int nrows_X,
-                    int ncols,
-                    float* background,
-                    int nrows_background,
-                    float* dataset,
-                    float* observation,
-                    int* nsamples,
-                    int len_nsamples,
-                    int maxsample,
-                    uint64_t seed = 0ULL);
+CUML_EXPORT void kernel_dataset(const raft::handle_t& handle,
+                                float* X,
+                                int nrows_X,
+                                int ncols,
+                                float* background,
+                                int nrows_background,
+                                float* dataset,
+                                float* observation,
+                                int* nsamples,
+                                int len_nsamples,
+                                int maxsample,
+                                uint64_t seed = 0ULL);
 
 }  // namespace Explainer
 }  // namespace ML

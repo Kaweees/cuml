@@ -18,7 +18,7 @@ namespace genetic {
  * @brief The main data structure to store the AST that represents a program
  *        in the current generation
  */
-struct program {
+struct CUML_EXPORT program {
   /**
    * the AST. It is stored in the reverse of DFS-right-child-first order. In
    * other words, construct a regular AST in the form of depth-first, but
@@ -103,14 +103,14 @@ void execute(const raft::handle_t& h,
  * @param score     Device pointer to final score (SIZE = n_progs)
  * @param params    Training hyperparameters
  */
-void compute_metric(const raft::handle_t& h,
-                    int n_rows,
-                    int n_progs,
-                    const float* y,
-                    const float* y_pred,
-                    const float* w,
-                    float* score,
-                    const param& params);
+CUML_EXPORT void compute_metric(const raft::handle_t& h,
+                                int n_rows,
+                                int n_progs,
+                                const float* y,
+                                const float* y_pred,
+                                const float* w,
+                                float* score,
+                                const param& params);
 
 /**
  * @brief Computes the fitness scores for a sngle program on the given dataset

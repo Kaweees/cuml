@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2018-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2018-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -47,6 +47,7 @@ double trustworthiness_score(const raft::handle_t& h,
     batchSize);
 }
 
+#pragma GCC visibility push(default)
 template double trustworthiness_score<float, ML::distance::DistanceType::L2SqrtUnexpanded>(
   const raft::handle_t& h,
   const float* X,
@@ -56,6 +57,7 @@ template double trustworthiness_score<float, ML::distance::DistanceType::L2SqrtU
   int d,
   int n_neighbors,
   int batchSize);
+#pragma GCC visibility pop
 
 };  // end namespace Metrics
 };  // end namespace ML

@@ -1,9 +1,11 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2020-2023, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2020-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
+
+#include <cuml/common/export.hpp>
 
 #include <cstdint>
 #include <string>
@@ -24,7 +26,7 @@ namespace genetic {
  * node var_node{20};
  * @endcode
  */
-struct node {
+struct CUML_EXPORT node {
   /**
    * @brief All possible types of nodes. For simplicity, all the terminal and
    *        non-terminal types are clubbed together

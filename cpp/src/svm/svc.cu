@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2025, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -22,6 +22,7 @@ namespace SVM {
 using namespace MLCommon;
 
 // Explicit instantiation for the library
+#pragma GCC visibility push(default)
 template int svcFit<float>(const raft::handle_t& handle,
                            float* input,
                            int n_rows,
@@ -117,6 +118,7 @@ template void svcPredictSparse<double>(const raft::handle_t& handle,
 template void svmFreeBuffers(const raft::handle_t& handle, SvmModel<float>& m);
 
 template void svmFreeBuffers(const raft::handle_t& handle, SvmModel<double>& m);
+#pragma GCC visibility pop
 
 template <typename math_t>
 SVC<math_t>::SVC(raft::handle_t& handle,

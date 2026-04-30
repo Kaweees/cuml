@@ -4,8 +4,8 @@
  */
 
 #pragma once
-
 #include <cuml/common/distance_type.hpp>
+#include <cuml/common/export.hpp>
 
 #include <raft/random/rng_state.hpp>
 
