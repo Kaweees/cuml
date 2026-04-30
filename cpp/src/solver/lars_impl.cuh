@@ -5,11 +5,10 @@
 
 #pragma once
 
-#include <cuml/solvers/lars.hpp>
-
 #include <cuml/common/export.hpp>
 #include <cuml/common/logger.hpp>
 #include <cuml/common/utils.hpp>
+#include <cuml/solvers/lars.hpp>
 
 #include <raft/core/handle.hpp>
 #include <raft/linalg/add.cuh>
