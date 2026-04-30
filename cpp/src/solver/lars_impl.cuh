@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include <cuml/solvers/lars.hpp>
+
 #include <cuml/common/export.hpp>
 #include <cuml/common/logger.hpp>
 #include <cuml/common/utils.hpp>
