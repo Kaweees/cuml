@@ -11,7 +11,7 @@
 #include <cuml/prims/opg/matrix/data.hpp>
 #include <cuml/prims/opg/matrix/part_descriptor.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace PCA {
 namespace opg {
 
@@ -177,4 +177,4 @@ void inverse_transform(raft::handle_t& handle,
 
 };  // end namespace opg
 };  // end namespace PCA
-};  // end namespace ML
+};  // end namespace CUML_EXPORT ML

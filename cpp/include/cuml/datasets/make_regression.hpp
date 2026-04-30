@@ -13,7 +13,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Datasets {
 
 /**
@@ -107,4 +107,4 @@ void make_regression(const raft::handle_t& handle,
                      uint64_t seed        = 0ULL);
 
 }  // namespace Datasets
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

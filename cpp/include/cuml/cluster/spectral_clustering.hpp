@@ -10,7 +10,7 @@
 #include <raft/core/device_mdspan.hpp>
 #include <raft/core/resources.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace SpectralClustering {
 
 /**
@@ -78,4 +78,4 @@ void fit_predict(raft::resources const& handle,
                  raft::device_vector_view<int, int> labels);
 
 }  // namespace SpectralClustering
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

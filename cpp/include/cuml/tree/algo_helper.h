@@ -1,11 +1,11 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2021, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 
 #pragma once
 
-namespace ML {
+namespace CUML_EXPORT ML {
 enum CRITERION {
   GINI,
   ENTROPY,
@@ -17,4 +17,4 @@ enum CRITERION {
   CRITERION_END,
 };
 
-};  // namespace ML
+};  // namespace CUML_EXPORT ML

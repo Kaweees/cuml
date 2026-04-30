@@ -9,7 +9,7 @@
 
 #include <rmm/mr/pinned_host_memory_resource.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 
 template <typename T>
 class pinned_host_vector {
@@ -52,4 +52,4 @@ class pinned_host_vector {
   std::size_t size_;
 };
 
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

@@ -13,7 +13,8 @@ struct KernelParams;
 
 }  // end namespace cuvs::distance::kernels
 
-namespace ML::matrix {
+namespace ML {
+namespace CUML_EXPORT matrix {
 
 enum class KernelType { LINEAR, POLYNOMIAL, RBF, TANH, PRECOMPUTED };
 
@@ -33,4 +34,5 @@ struct KernelParams {
   cuvs::distance::kernels::KernelParams to_cuvs() const;
 };
 
-}  // end namespace ML::matrix
+}  // end namespace CUML_EXPORT matrix
+}  // end namespace ML

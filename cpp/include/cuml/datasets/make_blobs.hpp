@@ -13,7 +13,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Datasets {
 
 /**
@@ -107,4 +107,4 @@ void make_blobs(const raft::handle_t& handle,
 /** @} */
 
 }  // namespace Datasets
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

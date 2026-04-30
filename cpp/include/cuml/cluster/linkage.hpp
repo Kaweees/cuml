@@ -10,7 +10,7 @@
 
 #include <raft/core/handle.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace linkage {
 
 /**
@@ -44,4 +44,4 @@ void single_linkage(const raft::handle_t& handle,
                     int c        = 15);
 
 };  // namespace linkage
-};  // namespace ML
+};  // namespace CUML_EXPORT ML

@@ -11,7 +11,7 @@
 #include <queue>
 #include <stack>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace forest {
 
 namespace detail {
@@ -188,4 +188,4 @@ struct traversal_forest {
 };
 
 }  // namespace forest
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

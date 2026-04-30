@@ -26,7 +26,7 @@
 #include <cmath>
 #include <variant>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace fil {
 
 namespace detail {
@@ -507,4 +507,4 @@ inline auto import_from_treelite_handle(
 }
 
 }  // namespace fil
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

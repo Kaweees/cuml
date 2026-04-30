@@ -14,7 +14,7 @@
 #include <numeric>
 #include <vector>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace forest {
 
 using TREELITE_NODE_ID_T = int;
@@ -224,4 +224,4 @@ auto node_accumulate(treelite::Model const& tl_model, T init, lambda_t&& lambda)
 }
 
 }  // namespace forest
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

@@ -10,7 +10,7 @@
 #include <cuml/prims/opg/matrix/data.hpp>
 #include <cuml/prims/opg/matrix/part_descriptor.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace CD {
 namespace opg {
 
@@ -96,4 +96,4 @@ void predict(raft::handle_t& handle,
 
 };  // end namespace opg
 };  // namespace CD
-};  // end namespace ML
+};  // end namespace CUML_EXPORT ML

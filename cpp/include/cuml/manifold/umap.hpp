@@ -21,7 +21,7 @@ namespace raft {
 class handle_t;
 }  // namespace raft
 
-namespace ML {
+namespace CUML_EXPORT ML {
 class UMAPParams;
 namespace UMAP {
 
@@ -257,4 +257,4 @@ void inverse_transform(const raft::handle_t& handle,
                        int n_epochs);
 
 }  // namespace UMAP
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

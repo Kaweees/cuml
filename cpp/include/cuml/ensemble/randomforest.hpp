@@ -17,7 +17,7 @@ namespace raft {
 class handle_t;  // forward decl
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 
 enum RF_type {
   CLASSIFICATION,
@@ -282,4 +282,4 @@ RF_metrics score(const raft::handle_t& user_handle,
                  int n_rows,
                  const double* predictions,
                  rapids_logger::level_enum verbosity = rapids_logger::level_enum::info);
-};  // namespace ML
+};  // namespace CUML_EXPORT ML

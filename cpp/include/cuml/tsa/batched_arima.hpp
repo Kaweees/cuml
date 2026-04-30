@@ -12,7 +12,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 
 enum LoglikeMethod { CSS, MLE };
 
@@ -291,4 +291,4 @@ void estimate_x0(raft::handle_t& handle,
                  const ARIMAOrder& order,
                  bool missing);
 
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

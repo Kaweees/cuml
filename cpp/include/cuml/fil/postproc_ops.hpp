@@ -4,7 +4,7 @@
  */
 #pragma once
 #include <cuml/common/export.hpp>
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace fil {
 
 /** Enum representing possible row-wise operations on output */
@@ -25,4 +25,4 @@ enum struct element_op : unsigned char {
 };
 
 }  // namespace fil
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

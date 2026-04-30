@@ -14,7 +14,7 @@
 #include <string>
 #include <vector>
 
-namespace cuml {
+namespace CUML_EXPORT cuml {
 namespace genetic {
 
 /** fitness metric types */
@@ -179,4 +179,4 @@ struct param {
 };  // struct param
 
 }  // namespace genetic
-}  // namespace cuml
+}  // namespace CUML_EXPORT cuml

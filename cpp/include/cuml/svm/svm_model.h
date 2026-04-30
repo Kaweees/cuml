@@ -1,10 +1,10 @@
 /*
- * SPDX-FileCopyrightText: Copyright (c) 2019-2023, NVIDIA CORPORATION.
+ * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
 #pragma once
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace SVM {
 
 // Contains array(s) for matrix storage
@@ -42,4 +42,4 @@ struct SvmModel {
 };
 
 };  // namespace SVM
-};  // namespace ML
+};  // namespace CUML_EXPORT ML

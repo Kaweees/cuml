@@ -15,7 +15,7 @@
 
 #include <vector>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace GLM {
 namespace opg {
 
@@ -94,4 +94,4 @@ void qnFitSparse(raft::handle_t& handle,
 
 };  // namespace opg
 };  // namespace GLM
-};  // namespace ML
+};  // namespace CUML_EXPORT ML

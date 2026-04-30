@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <string>
 
-namespace cuml {
+namespace CUML_EXPORT cuml {
 namespace genetic {
 
 /**
@@ -155,4 +155,4 @@ struct node {
 };  // struct node
 
 }  // namespace genetic
-}  // namespace cuml
+}  // namespace CUML_EXPORT cuml

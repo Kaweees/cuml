@@ -10,7 +10,7 @@
 
 #include <rapids_logger/logger.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 
 /**
  * @brief Returns the default sink for the global logger.
@@ -52,4 +52,4 @@ inline rapids_logger::logger& default_logger()
   return logger_;
 }
 
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

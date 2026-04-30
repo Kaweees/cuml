@@ -21,25 +21,25 @@ namespace ML {
 namespace SVM {
 
 // Explicit instantiation for the library
-template int svrFit<float>(const raft::handle_t& handle,
-                           float* X,
-                           int n_rows,
-                           int n_cols,
-                           float* y,
-                           const SvmParameter& param,
-                           ML::matrix::KernelParams& kernel_params,
-                           SvmModel<float>& model,
-                           const float* sample_weight);
+template CUML_EXPORT int svrFit<float>(const raft::handle_t& handle,
+                                       float* X,
+                                       int n_rows,
+                                       int n_cols,
+                                       float* y,
+                                       const SvmParameter& param,
+                                       ML::matrix::KernelParams& kernel_params,
+                                       SvmModel<float>& model,
+                                       const float* sample_weight);
 
-template int svrFit<double>(const raft::handle_t& handle,
-                            double* X,
-                            int n_rows,
-                            int n_cols,
-                            double* y,
-                            const SvmParameter& param,
-                            ML::matrix::KernelParams& kernel_params,
-                            SvmModel<double>& model,
-                            const double* sample_weight);
+template CUML_EXPORT int svrFit<double>(const raft::handle_t& handle,
+                                        double* X,
+                                        int n_rows,
+                                        int n_cols,
+                                        double* y,
+                                        const SvmParameter& param,
+                                        ML::matrix::KernelParams& kernel_params,
+                                        SvmModel<double>& model,
+                                        const double* sample_weight);
 
 template int svrFitSparse<float>(const raft::handle_t& handle,
                                  int* indptr,

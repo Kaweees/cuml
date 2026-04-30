@@ -18,7 +18,8 @@ struct params;
 
 }  // end namespace cuvs::preprocessing::spectral_embedding
 
-namespace ML::SpectralEmbedding {
+namespace CUML_EXPORT ML {
+namespace SpectralEmbedding {
 
 /**
  * @brief Parameters for spectral embedding algorithm
@@ -59,4 +60,5 @@ void transform(raft::resources const& handle,
                raft::device_vector_view<float, int64_t> vals,
                raft::device_matrix_view<float, int, raft::col_major> embedding);
 
-}  // namespace ML::SpectralEmbedding
+}  // namespace SpectralEmbedding
+}  // namespace CUML_EXPORT ML

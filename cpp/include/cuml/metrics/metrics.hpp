@@ -14,7 +14,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 
 namespace Metrics {
 
@@ -426,4 +426,4 @@ double trustworthiness_score(const raft::handle_t& h,
                              int batchSize = 512);
 
 }  // namespace Metrics
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

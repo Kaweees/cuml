@@ -13,7 +13,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Explainer {
 
 /**
@@ -81,4 +81,4 @@ void kernel_dataset(const raft::handle_t& handle,
                     uint64_t seed = 0ULL);
 
 }  // namespace Explainer
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

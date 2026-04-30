@@ -11,7 +11,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Explainer {
 
 /**
@@ -133,4 +133,4 @@ void update_perm_shap_values(const raft::handle_t& handle,
                              const int* idx);
 
 }  // namespace Explainer
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

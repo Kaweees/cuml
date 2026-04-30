@@ -13,7 +13,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace HoltWinters {
 
 /**
@@ -144,4 +144,4 @@ void forecast(const raft::handle_t& handle,
               double* forecast_d);
 
 }  // namespace HoltWinters
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

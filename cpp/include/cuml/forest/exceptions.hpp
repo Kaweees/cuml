@@ -8,7 +8,7 @@
 #include <exception>
 #include <string>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace forest {
 struct traversal_exception : std::exception {
   traversal_exception() : msg_{"Error encountered while traversing forest"} {}
@@ -20,4 +20,4 @@ struct traversal_exception : std::exception {
   std::string msg_;
 };
 }  // namespace forest
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

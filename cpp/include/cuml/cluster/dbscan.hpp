@@ -16,7 +16,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Dbscan {
 
 enum EpsNnMethod { BRUTE_FORCE, RBC };
@@ -111,4 +111,4 @@ void fit(const raft::handle_t& handle,
 /** @} */
 
 }  // namespace Dbscan
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

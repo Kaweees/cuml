@@ -9,7 +9,7 @@
 
 #include <type_traits>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Internals {
 
 class Callback {
@@ -38,4 +38,4 @@ class GraphBasedDimRedCallback : public Callback {
 };
 
 }  // namespace Internals
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

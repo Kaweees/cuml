@@ -11,7 +11,7 @@
 
 #include <raft/core/handle.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace PCA {
 namespace opg {
 
@@ -82,4 +82,4 @@ void sign_flip(raft::handle_t& handle,
 
 };  // end namespace opg
 };  // end namespace PCA
-};  // end namespace ML
+};  // end namespace CUML_EXPORT ML

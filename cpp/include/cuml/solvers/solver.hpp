@@ -11,7 +11,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Solver {
 
 void sgdFit(raft::handle_t& handle,
@@ -190,4 +190,4 @@ void cdPredict(raft::handle_t& handle,
                int loss);
 
 };  // namespace Solver
-};  // end namespace ML
+};  // end namespace CUML_EXPORT ML

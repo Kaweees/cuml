@@ -7,7 +7,8 @@
 
 #include <cuml/common/export.hpp>
 
-namespace ML::distance {
+namespace ML {
+namespace CUML_EXPORT distance {
 
 enum class DistanceType {
   L2Expanded          = 0,
@@ -34,4 +35,5 @@ enum class DistanceType {
   Precomputed         = 100
 };
 
-}  // end namespace ML::distance
+}  // end namespace CUML_EXPORT distance
+}  // end namespace ML

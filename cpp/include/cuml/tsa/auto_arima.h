@@ -11,7 +11,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 
 /**
  * Batch division by mask step 1: build an index of the position of each series
@@ -190,4 +190,4 @@ void merge_series(const raft::handle_t& handle,
                   int n_sub,
                   int n_obs);
 
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

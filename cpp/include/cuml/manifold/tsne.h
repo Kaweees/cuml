@@ -13,7 +13,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 
 enum TSNE_ALGORITHM { EXACT, BARNES_HUT, FFT };
 
@@ -176,4 +176,4 @@ void TSNE_fit_sparse(const raft::handle_t& handle,
                      float* kl_div = nullptr,
                      int* n_iter   = nullptr);
 
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

@@ -18,7 +18,7 @@
 #include <type_traits>
 #include <variant>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace fil {
 
 /**
@@ -304,4 +304,4 @@ struct forest_model {
 };
 
 }  // namespace fil
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

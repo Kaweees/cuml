@@ -14,7 +14,7 @@
 
 #include <cstddef>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace HDBSCAN {
 namespace Common {
 
@@ -574,4 +574,4 @@ void compute_inverse_label_map(const raft::handle_t& handle,
                                float cluster_selection_epsilon);
 
 }  // namespace HDBSCAN::HELPER
-}  // END namespace ML
+}  // END namespace CUML_EXPORT ML

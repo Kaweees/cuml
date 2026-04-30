@@ -15,7 +15,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Sparse {
 
 constexpr int DEFAULT_BATCH_SIZE = 1 << 16;
@@ -41,4 +41,4 @@ void brute_force_knn(raft::handle_t& handle,
                      ML::distance::DistanceType metric = ML::distance::DistanceType::L2Expanded,
                      float metricArg                   = 0);
 };  // end namespace Sparse
-};  // end namespace ML
+};  // end namespace CUML_EXPORT ML

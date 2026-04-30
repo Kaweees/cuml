@@ -10,7 +10,7 @@
 
 #include <raft/core/handle.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace SVM {
 namespace linear {
 
@@ -124,4 +124,4 @@ void computeProbabilities(const raft::handle_t& handle,
 
 }  // namespace linear
 }  // namespace SVM
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

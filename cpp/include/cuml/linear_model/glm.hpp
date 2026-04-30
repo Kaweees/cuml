@@ -9,7 +9,7 @@
 
 #include <raft/core/handle.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace GLM {
 
 /**
@@ -306,4 +306,4 @@ void qnPredictSparse(const raft::handle_t& cuml_handle,
                      T* preds);
 
 }  // namespace GLM
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

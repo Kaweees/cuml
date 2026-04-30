@@ -14,7 +14,7 @@
 
 #include <raft/core/handle.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace SVM {
 
 // Forward declarations of the stateless API
@@ -273,4 +273,4 @@ class SVC {
 };
 
 };  // end namespace SVM
-};  // end namespace ML
+}  // end namespace CUML_EXPORT ML

@@ -10,7 +10,7 @@
 
 #include <raft/core/handle.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Solver {
 namespace Lars {
 
@@ -93,4 +93,4 @@ void larsPredict(const raft::handle_t& handle,
                  math_t* preds);
 };  // namespace Lars
 };  // namespace Solver
-};  // end namespace ML
+};  // end namespace CUML_EXPORT ML

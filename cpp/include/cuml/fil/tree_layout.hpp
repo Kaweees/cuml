@@ -4,7 +4,7 @@
  */
 #pragma once
 #include <cuml/common/export.hpp>
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace fil {
 enum class tree_layout : unsigned char {
   depth_first   = 0,
@@ -17,4 +17,4 @@ enum class tree_layout : unsigned char {
 };
 
 }
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

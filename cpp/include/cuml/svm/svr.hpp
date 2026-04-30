@@ -10,7 +10,7 @@
 
 #include <cublas_v2.h>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace SVM {
 
 template <typename math_t>
@@ -47,7 +47,7 @@ int svrFit(const raft::handle_t& handle,
            const SvmParameter& param,
            ML::matrix::KernelParams& kernel_params,
            SvmModel<math_t>& model,
-           const math_t* sample_weight = nullptr);
+           const math_t* sample_weight);
 
 /**
  * @brief Fit a support vector regressor to the training data.
@@ -83,9 +83,9 @@ int svrFitSparse(const raft::handle_t& handle,
                  const SvmParameter& param,
                  ML::matrix::KernelParams& kernel_params,
                  SvmModel<math_t>& model,
-                 const math_t* sample_weight = nullptr);
+                 const math_t* sample_weight);
 
 // For prediction we use svcPredict
 
 };  // end namespace SVM
-};  // end namespace ML
+};  // end namespace CUML_EXPORT ML

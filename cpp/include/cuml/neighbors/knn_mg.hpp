@@ -12,7 +12,7 @@
 
 #include <vector>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace KNN {
 namespace opg {
 
@@ -126,4 +126,4 @@ void knn_regress(raft::handle_t& handle,
 
 };  // END namespace opg
 };  // namespace KNN
-};  // namespace ML
+};  // namespace CUML_EXPORT ML

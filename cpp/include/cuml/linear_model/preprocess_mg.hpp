@@ -12,7 +12,7 @@
 #include <raft/core/comms.hpp>
 #include <raft/core/handle.hpp>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace GLM {
 namespace opg {
 
@@ -66,4 +66,4 @@ void postProcessData(raft::handle_t& handle,
 
 };  // end namespace opg
 };  // namespace GLM
-};  // end namespace ML
+};  // end namespace CUML_EXPORT ML

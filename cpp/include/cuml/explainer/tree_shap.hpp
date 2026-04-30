@@ -13,7 +13,7 @@
 #include <memory>
 #include <variant>
 
-namespace ML {
+namespace CUML_EXPORT ML {
 namespace Explainer {
 
 template <typename T>
@@ -58,4 +58,4 @@ void gpu_treeshap_taylor_interactions(TreePathHandle path_info,
                                       std::size_t out_preds_size);
 
 }  // namespace Explainer
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

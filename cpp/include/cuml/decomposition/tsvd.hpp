@@ -13,7 +13,7 @@ namespace raft {
 class handle_t;
 }
 
-namespace ML {
+namespace CUML_EXPORT ML {
 
 void tsvdFit(const raft::handle_t& handle,
              float* input,
@@ -66,4 +66,4 @@ void tsvdFitTransform(const raft::handle_t& handle,
                       const paramsTSVD& prms,
                       bool flip_signs_based_on_U);
 
-}  // namespace ML
+}  // namespace CUML_EXPORT ML

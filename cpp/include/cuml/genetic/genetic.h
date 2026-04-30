@@ -12,7 +12,7 @@
 
 #include <raft/core/handle.hpp>
 
-namespace cuml {
+namespace CUML_EXPORT cuml {
 namespace genetic {
 
 /**
@@ -126,4 +126,4 @@ void symTransform(const raft::handle_t& handle,
                   float* output);
 
 }  // namespace genetic
-}  // namespace cuml
+}  // namespace CUML_EXPORT cuml
