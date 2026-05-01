@@ -154,4 +154,4 @@ void print(const raft::handle_t& h,
            cudaStream_t stream);
 }  // end namespace opg
 }  // namespace Matrix
-}  // end namespace MLCommon
+}  // namespace CUML_EXPORT MLCommon

@@ -41,4 +41,4 @@ void mean(const raft::handle_t& handle,
 
 }  // end namespace opg
 }  // end namespace Stats
-}  // end namespace MLCommon
+}  // namespace CUML_EXPORT MLCommon

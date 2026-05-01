@@ -100,4 +100,4 @@ std::ostream& operator<<(std::ostream& os, const PartDescriptor& desc);
 bool operator==(const PartDescriptor& a, const PartDescriptor& b);
 
 };  // end namespace Matrix
-};  // end namespace MLCommon
+};  // namespace CUML_EXPORT MLCommon

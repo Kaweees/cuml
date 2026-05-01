@@ -43,4 +43,4 @@ typedef Data<float> floatData_t;
 typedef Data<double> doubleData_t;
 
 };  // end namespace Matrix
-};  // end namespace MLCommon
+};  // namespace CUML_EXPORT MLCommon

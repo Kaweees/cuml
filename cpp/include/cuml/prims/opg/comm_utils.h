@@ -38,4 +38,4 @@ void allreduce_single_sum(T* out,
 }
 
 };  // end namespace opg
-};  // end namespace MLCommon
+};  // namespace CUML_EXPORT MLCommon

@@ -49,4 +49,4 @@ void colNorm2NoSeq(const raft::handle_t& handle,
 
 }  // end namespace opg
 }  // end namespace LinAlg
-}  // end namespace MLCommon
+}  // namespace CUML_EXPORT MLCommon

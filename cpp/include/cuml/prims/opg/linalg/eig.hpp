@@ -64,4 +64,4 @@ void eigJacobi(const raft::handle_t& h,
 
 }  // end namespace opg
 }  // end namespace LinAlg
-}  // end namespace MLCommon
+}  // namespace CUML_EXPORT MLCommon

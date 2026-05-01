@@ -51,4 +51,4 @@ void matrixVectorBinaryMult(std::vector<Matrix::Data<float>*>& data,
 
 };  // namespace opg
 };  // end namespace Matrix
-};  // end namespace MLCommon
+};  // namespace CUML_EXPORT MLCommon
