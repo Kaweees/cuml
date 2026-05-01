@@ -7,6 +7,7 @@
 #include <stdbool.h>
 
 #ifdef __cplusplus
+#include <cuml/common/export.hpp>
 namespace ML {
 namespace CUML_EXPORT GLM {
 

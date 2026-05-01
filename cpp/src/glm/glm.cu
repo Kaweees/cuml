@@ -247,9 +247,9 @@ void qnDecisionFunction(const raft::handle_t& cuml_handle,
   detail::qnDecisionFunction<T>(cuml_handle, pams, X, X_col_major, N, D, C, params, scores);
 }
 
-template void qnDecisionFunction<float>(
+template CUML_EXPORT void qnDecisionFunction<float>(
   const raft::handle_t&, const qn_params&, float*, bool, int, int, int, float*, float*);
-template void qnDecisionFunction<double>(
+template CUML_EXPORT void qnDecisionFunction<double>(
   const raft::handle_t&, const qn_params&, double*, bool, int, int, int, double*, double*);
 
 template <typename T, typename I>
@@ -269,19 +269,19 @@ void qnDecisionFunctionSparse(const raft::handle_t& cuml_handle,
     cuml_handle, pams, X_values, X_cols, X_row_ids, X_nnz, N, D, C, params, scores);
 }
 
-template void qnDecisionFunctionSparse<float>(
+template CUML_EXPORT void qnDecisionFunctionSparse<float>(
   const raft::handle_t&, const qn_params&, float*, int*, int*, int, int, int, int, float*, float*);
-template void qnDecisionFunctionSparse<double>(const raft::handle_t&,
-                                               const qn_params&,
-                                               double*,
-                                               int*,
-                                               int*,
-                                               int,
-                                               int,
-                                               int,
-                                               int,
-                                               double*,
-                                               double*);
+template CUML_EXPORT void qnDecisionFunctionSparse<double>(const raft::handle_t&,
+                                                           const qn_params&,
+                                                           double*,
+                                                           int*,
+                                                           int*,
+                                                           int,
+                                                           int,
+                                                           int,
+                                                           int,
+                                                           double*,
+                                                           double*);
 
 template <typename T, typename I>
 void qnPredict(const raft::handle_t& cuml_handle,

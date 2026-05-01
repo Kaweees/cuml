@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+#pragma once
+
 #include <cuml/common/export.hpp>
 
 #include <raft/core/comms.hpp>

@@ -4,6 +4,7 @@
  */
 
 #pragma once
+#include <cuml/common/export.hpp>
 
 namespace CUML_EXPORT ML {
 enum CRITERION {

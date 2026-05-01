@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 #pragma once
+#include <cuml/common/export.hpp>
 
 namespace CUML_EXPORT ML {
 namespace SVM {

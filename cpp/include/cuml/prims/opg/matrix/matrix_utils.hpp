@@ -2,6 +2,7 @@
  * SPDX-FileCopyrightText: Copyright (c) 2019-2026, NVIDIA CORPORATION.
  * SPDX-License-Identifier: Apache-2.0
  */
+#pragma once
 
 #include "data.hpp"
 #include "part_descriptor.hpp"
