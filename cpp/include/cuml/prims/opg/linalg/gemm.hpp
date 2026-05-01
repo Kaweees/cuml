@@ -11,7 +11,7 @@
 
 #include <raft/core/handle.hpp>
 
-namespace MLCommon {
+namespace CUML_EXPORT MLCommon {
 namespace LinAlg {
 namespace opg {
 

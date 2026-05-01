@@ -7,7 +7,7 @@
 
 #include <cuml/common/export.hpp>
 
-namespace MLCommon {
+namespace CUML_EXPORT MLCommon {
 namespace Matrix {
 
 /**

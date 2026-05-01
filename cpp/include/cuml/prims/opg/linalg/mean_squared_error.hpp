@@ -12,7 +12,7 @@
 #include <raft/core/comms.hpp>
 #include <raft/core/device_mdspan.hpp>
 
-namespace MLCommon {
+namespace CUML_EXPORT MLCommon {
 namespace LinAlg {
 namespace opg {
 

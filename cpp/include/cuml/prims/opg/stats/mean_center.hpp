@@ -11,7 +11,7 @@
 
 #include <raft/core/comms.hpp>
 
-namespace MLCommon {
+namespace CUML_EXPORT MLCommon {
 namespace Stats {
 namespace opg {
 

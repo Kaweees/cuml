@@ -12,7 +12,7 @@
 #include <raft/core/handle.hpp>
 #include <raft/random/rng.cuh>
 
-namespace MLCommon {
+namespace CUML_EXPORT MLCommon {
 namespace Matrix {
 namespace opg {
 

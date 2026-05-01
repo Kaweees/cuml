@@ -12,7 +12,7 @@
 #include <raft/core/comms.hpp>
 #include <raft/core/handle.hpp>
 
-namespace MLCommon {
+namespace CUML_EXPORT MLCommon {
 namespace Stats {
 namespace opg {
 

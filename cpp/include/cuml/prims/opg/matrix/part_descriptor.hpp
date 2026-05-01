@@ -15,7 +15,7 @@
 #include <set>
 #include <vector>
 
-namespace MLCommon {
+namespace CUML_EXPORT MLCommon {
 namespace Matrix {
 
 /** Describes the data layout */

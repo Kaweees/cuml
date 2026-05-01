@@ -10,7 +10,7 @@
 #include <raft/core/comms.hpp>
 #include <raft/util/cuda_utils.cuh>
 
-namespace MLCommon {
+namespace CUML_EXPORT MLCommon {
 namespace opg {
 
 /** sum-reduce single float numbers across workers */
